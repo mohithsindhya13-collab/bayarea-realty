@@ -42,32 +42,32 @@
 }
 
 :root {
-  --background: #fdfdfd;
+  --background: #f5f2eb; /* Bone background */
   --foreground: #111827;
   
-  --card: #ffffff;
+  --card: #faf9f6; /* Lighter cream/bone card */
   --card-foreground: #111827;
   
-  --popover: #ffffff;
+  --popover: #faf9f6;
   --popover-foreground: #111827;
   
-  --primary: #991b1b; /* Luxurious deep red */
-  --primary-foreground: #ffffff;
+  --primary: #0f2942; /* Luxurious navy blue */
+  --primary-foreground: #faf9f6;
   
-  --secondary: #f3f4f6;
+  --secondary: #eae6db; /* Slightly darker bone */
   --secondary-foreground: #111827;
   
-  --muted: #f3f4f6;
+  --muted: #eae6db;
   --muted-foreground: #6b7280;
   
-  --accent: #fee2e2;
-  --accent-foreground: #991b1b;
+  --accent: #e6ecf5; /* Soft ice-blue/navy accent */
+  --accent-foreground: #0f2942;
   
   --destructive: #dc2626;
   
-  --border: #fee2e2; /* Soft red-tinted border */
-  --input: #fee2e2;
-  --ring: #991b1b;
+  --border: #e6e1d5; /* Soft bone-tinted border */
+  --input: #e6e1d5;
+  --ring: #0f2942;
   --radius: 0.75rem;
 }
 
@@ -77,12 +77,12 @@
 }
 
 .hero-section-bg {
-  background-image: linear-gradient(180deg, rgba(253, 251, 251, 0.95) 0%, rgba(253, 251, 251, 0.65) 50%, rgba(253, 251, 251, 0.3) 100%), url('/assets/images/hero_background.png');
+  background-image: linear-gradient(180deg, rgba(245, 242, 235, 0.95) 0%, rgba(245, 242, 235, 0.65) 50%, rgba(245, 242, 235, 0.3) 100%), url('/assets/images/hero_background.png');
 }
 
 @media (min-width: 768px) {
   .hero-section-bg {
-    background-image: linear-gradient(90deg, rgba(253, 251, 251, 0.95) 0%, rgba(253, 251, 251, 0.7) 35%, rgba(253, 251, 251, 0) 65%), url('/assets/images/hero_background.png');
+    background-image: linear-gradient(90deg, rgba(245, 242, 235, 0.95) 0%, rgba(245, 242, 235, 0.7) 35%, rgba(245, 242, 235, 0) 65%), url('/assets/images/hero_background.png');
   }
 }
 
@@ -122,7 +122,7 @@ table {
   }
   body {
     @apply bg-background text-foreground font-sans antialiased;
-    background-color: #fcfbfb !important;
+    background-color: #f5f2eb !important;
     color: #1f2937 !important;
   }
 }
@@ -137,7 +137,7 @@ table {
 .bg-slate-950\/90,
 .bg-white\/2,
 .bg-white\/5 {
-  background-color: #ffffff !important;
+  background-color: #faf9f6 !important;
 }
 
 .text-slate-100,
@@ -157,51 +157,51 @@ table {
 .border-white\/10,
 .border-white\/20,
 .border-slate-800 {
-  border-color: #fee2e2 !important;
+  border-color: #e6e1d5 !important;
 }
 
 /* Glassmorphism backgrounds for navbar, search filters, and detail cards */
 .backdrop-blur-md,
 .backdrop-blur-sm {
   backdrop-filter: blur(16px) saturate(180%);
-  background-color: rgba(255, 255, 255, 0.85) !important;
-  border-color: rgba(153, 27, 27, 0.1) !important;
+  background-color: rgba(250, 249, 246, 0.85) !important;
+  border-color: rgba(15, 41, 66, 0.1) !important;
 }
 
-/* Page titles & headings styled as rich burgundy red */
+/* Page titles & headings styled as rich navy blue */
 h1, h2, h3, h4, h5, h6,
 .group-hover\:text-\[\#d4af37\] {
-  color: #7f1d1d !important;
+  color: #0b1d33 !important;
 }
 
-/* Brand logo and custom highlighted red features */
+/* Brand logo and custom highlighted navy features */
 .bg-\[\#d4af37\] {
-  background-color: #991b1b !important; /* Rich crimson red buttons */
-  color: #ffffff !important;
+  background-color: #0f2942 !important; /* Rich navy blue buttons */
+  color: #faf9f6 !important;
 }
 
 .bg-\[\#d4af37\]:hover,
 .hover\:bg-\[\#f3cf65\]:hover {
-  background-color: #7f1d1d !important; /* Deep burgundy hover */
+  background-color: #1d3557 !important; /* Lighter navy hover */
   color: #ffffff !important;
 }
 
 .text-gold,
 .text-\[\#d4af37\] {
-  color: #991b1b !important;
+  color: #0f2942 !important;
 }
 
 .hover\:text-\[\#d4af37\]:hover {
-  color: #7f1d1d !important;
+  color: #1d3557 !important;
 }
 
 .hover\:border-\[\#d4af37\]:hover {
-  border-color: #991b1b !important;
+  border-color: #0f2942 !important;
 }
 
 .border-\[\#d4af37\]\/30,
 .hover\:border-\[\#d4af37\]\/30:hover {
-  border-color: rgba(153, 27, 27, 0.2) !important;
+  border-color: rgba(15, 41, 66, 0.2) !important;
 }
 
 /* Navigation links */
@@ -213,25 +213,25 @@ nav a:hover,
 .hover\:text-white:hover,
 .hover\:text-slate-200:hover,
 .hover\:text-slate-300:hover {
-  color: #991b1b !important;
+  color: #0f2942 !important;
 }
 
 /* Active navigation tab & buttons */
 [data-state="active"] {
-  background-color: #fee2e2 !important;
-  color: #991b1b !important;
-  border-color: #fee2e2 !important;
+  background-color: #e6ecf5 !important;
+  color: #0f2942 !important;
+  border-color: #e6ecf5 !important;
 }
 
 /* Inputs, textareas, and selects */
 input, select, textarea {
   background-color: #ffffff !important;
   color: #111827 !important;
-  border: 1px solid #fee2e2 !important;
+  border: 1px solid #e6e1d5 !important;
 }
 
 input:focus, select:focus, textarea:focus {
-  border-color: #991b1b !important;
+  border-color: #0f2942 !important;
   outline: none;
 }
 

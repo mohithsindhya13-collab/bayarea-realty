@@ -52,7 +52,7 @@ export default function Home() {
   // Modals visibility
   const [isAdminOpen, setIsAdminOpen] = useState(false);
   const [isSellOpen, setIsSellOpen] = useState(false);
-  
+
   // Detail Dialog Modal
   const [selectedProperty, setSelectedProperty] = useState<Property | null>(null);
   const [activeImageIdx, setActiveImageIdx] = useState<number>(0);
@@ -187,7 +187,7 @@ export default function Home() {
 
   const handleSellSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     addSeller({
       name: sellForm.name,
       email: sellForm.email,
@@ -221,8 +221,8 @@ export default function Home() {
   };
 
   return (
-    <div className="bg-[#fcfbfb] min-h-screen text-slate-800 selection:bg-[#fee2e2] selection:text-[#991b1b]">
-      
+    <div className="bg-[#f5f2eb] min-h-screen text-slate-800 selection:bg-[#e6ecf5] selection:text-[#0f2942]">
+
       {/* Navbar header */}
       <Header
         onAdminClick={() => setIsAdminOpen(true)}
@@ -234,8 +234,8 @@ export default function Home() {
       <section className="relative min-h-[90vh] flex items-center pt-24 pb-12 overflow-hidden bg-cover bg-center hero-section-bg">
         <div className="max-w-[1280px] mx-auto px-6 w-full relative z-10 flex flex-col justify-center animate-fadeIn">
           <div className="max-w-[800px]">
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-[#7f1d1d] mb-6 leading-tight">
-              Find Your <span className="text-[#991b1b]">Silicon Valley</span><br />
+            <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-[#0b1d33] mb-6 leading-tight">
+              Find Your <span className="text-[#0f2942]">Silicon Valley</span><br />
               <span className="font-serif font-normal italic text-slate-800">Dream Home</span>
             </h1>
             <p className="text-slate-600 text-lg md:text-xl font-medium mb-12 max-w-[620px] leading-relaxed">
@@ -248,7 +248,7 @@ export default function Home() {
                 <span className="text-xs uppercase tracking-widest text-slate-500 font-semibold mt-1">Median Price</span>
               </div>
               <div className="flex flex-col">
-                <span className="text-4xl font-bold text-[#d4af37] tracking-tight">13 Days</span>
+                <span className="text-4xl font-bold text-[#d4af37] tracking-tight">21 Days</span>
                 <span className="text-xs uppercase tracking-widest text-slate-500 font-semibold mt-1">Avg. on Market</span>
               </div>
               <div className="flex flex-col">
@@ -297,16 +297,16 @@ export default function Home() {
             const currentImg = imagesList[activeIdx % imagesList.length];
 
             return (
-              <div 
-                key={prop.id} 
+              <div
+                key={prop.id}
                 onClick={() => { setSelectedProperty(prop); setActiveImageIdx(activeIdx); }}
                 className="group flex flex-col bg-slate-900/40 border border-white/5 hover:border-[#d4af37]/30 rounded-2xl overflow-hidden shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer"
               >
-                
+
                 {/* Card Image header */}
                 <div className="relative h-60 overflow-hidden">
                   <img src={currentImg} alt={prop.title} className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105" />
-                  
+
                   {/* Left / Right Cycle Arrows */}
                   {imagesList.length > 1 && (
                     <>
@@ -315,22 +315,22 @@ export default function Home() {
                         className="absolute left-3 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-8 h-8 rounded-full bg-slate-950/70 backdrop-blur-sm border border-white/10 text-slate-300 hover:text-white hover:bg-slate-950/90 transition-all opacity-0 group-hover:opacity-100"
                         title="Previous Image"
                       >
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6" /></svg>
                       </button>
                       <button
                         onClick={(e) => handleNextImage(prop.id, imagesList.length, e)}
                         className="absolute right-3 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-8 h-8 rounded-full bg-slate-950/70 backdrop-blur-sm border border-white/10 text-slate-300 hover:text-white hover:bg-slate-950/90 transition-all opacity-0 group-hover:opacity-100"
                         title="Next Image"
                       >
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="9 18 15 12 9 6" /></svg>
                       </button>
-                      
+
                       {/* Image dots indicator */}
                       <div className="absolute bottom-4 right-4 z-10 flex gap-1 bg-slate-950/60 backdrop-blur-sm px-2 py-1 rounded-full border border-white/5">
                         {imagesList.map((_, i) => (
-                          <div 
-                            key={i} 
-                            className={`w-1.5 h-1.5 rounded-full transition-all ${i === activeIdx ? 'bg-[#d4af37] w-3' : 'bg-slate-500'}`} 
+                          <div
+                            key={i}
+                            className={`w-1.5 h-1.5 rounded-full transition-all ${i === activeIdx ? 'bg-[#d4af37] w-3' : 'bg-slate-500'}`}
                           />
                         ))}
                       </div>
@@ -351,7 +351,7 @@ export default function Home() {
                 <div className="p-6 flex-1 flex flex-col">
                   <h3 className="text-lg font-semibold text-slate-100 mb-1 group-hover:text-[#d4af37] transition-colors line-clamp-1">{prop.title}</h3>
                   <div className="text-slate-400 text-xs flex items-center gap-1 mb-5">
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z" /><circle cx="12" cy="10" r="3" /></svg>
                     {prop.neighborhood}, San Jose
                   </div>
 
@@ -363,11 +363,11 @@ export default function Home() {
 
                   <div className="flex flex-col gap-2 text-xs text-slate-400 mb-6">
                     <div className="flex items-center gap-2">
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-[#d4af37]"><polyline points="20 6 9 17 4 12"/></svg>
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-[#d4af37]"><polyline points="20 6 9 17 4 12" /></svg>
                       <span>District: {prop.school_details.split(' (')[0]}</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-[#d4af37]"><polyline points="20 6 9 17 4 12"/></svg>
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-[#d4af37]"><polyline points="20 6 9 17 4 12" /></svg>
                       <span>Nvidia Commute: {prop.commute_times.nvidia} mins</span>
                     </div>
                   </div>
@@ -437,12 +437,12 @@ export default function Home() {
             </DialogHeader>
 
             <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mt-4">
-              
+
               {/* Left Column: Image, Description, Schools */}
               <div className="col-span-1 md:col-span-3">
                 {(() => {
-                  const imagesList = selectedProperty.images && selectedProperty.images.length > 0 
-                    ? selectedProperty.images 
+                  const imagesList = selectedProperty.images && selectedProperty.images.length > 0
+                    ? selectedProperty.images
                     : [selectedProperty.image];
                   const activeImg = imagesList[activeImageIdx] || selectedProperty.image;
                   return (
@@ -457,11 +457,10 @@ export default function Home() {
                               key={i}
                               type="button"
                               onClick={() => setActiveImageIdx(i)}
-                              className={`relative w-20 h-14 rounded-lg overflow-hidden border transition-all shrink-0 ${
-                                activeImageIdx === i 
-                                  ? 'border-[#d4af37] ring-1 ring-[#d4af37]' 
-                                  : 'border-white/10 hover:border-white/30'
-                              }`}
+                              className={`relative w-20 h-14 rounded-lg overflow-hidden border transition-all shrink-0 ${activeImageIdx === i
+                                ? 'border-[#d4af37] ring-1 ring-[#d4af37]'
+                                : 'border-white/10 hover:border-white/30'
+                                }`}
                             >
                               <img src={imgUrl} alt="" className="w-full h-full object-cover" />
                             </button>
@@ -473,8 +472,8 @@ export default function Home() {
                 })()}
                 <h4 className="text-sm font-semibold uppercase tracking-wider text-[#d4af37] border-b border-white/5 pb-2 mb-3">About this Home</h4>
                 <p className="text-sm text-slate-300 leading-relaxed mb-6">
-                  {selectedProperty.description && selectedProperty.description !== 'null' 
-                    ? selectedProperty.description 
+                  {selectedProperty.description && selectedProperty.description !== 'null'
+                    ? selectedProperty.description
                     : "This exceptional Silicon Valley residence offers a premium lifestyle in a highly desirable neighborhood. Highlights include a spacious layout, proximity to elite school districts, and convenient commutes to major Bay Area tech employers. Contact our agent team for complete details and to schedule a private viewing."}
                 </p>
 
@@ -582,7 +581,7 @@ export default function Home() {
             <DialogTitle className="font-serif text-lg text-slate-200">List Your Bay Area Property</DialogTitle>
           </DialogHeader>
           <form onSubmit={handleSellSubmit} className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-4">
-            
+
             <div className="flex flex-col gap-2">
               <Label htmlFor="sName" className="text-xs text-slate-400 font-medium">Owner Name</Label>
               <div className="bg-white/5 border border-white/10 rounded-xl px-4 py-3">
