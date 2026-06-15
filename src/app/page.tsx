@@ -231,7 +231,7 @@ export default function Home() {
       />
 
       {/* Hero section */}
-      <section className="relative min-h-[90vh] flex items-center pt-24 pb-12 overflow-hidden bg-cover bg-center" style={{ backgroundImage: `linear-gradient(rgba(253, 251, 251, 0.8), rgba(253, 251, 251, 0.96)), url('/assets/images/hero_background.png')` }}>
+      <section className="relative min-h-[90vh] flex items-center pt-24 pb-12 overflow-hidden bg-cover bg-center" style={{ backgroundImage: `linear-gradient(90deg, rgba(253, 251, 251, 0.85) 0%, rgba(253, 251, 251, 0.4) 60%, rgba(253, 251, 251, 0.15) 100%), url('/assets/images/hero_background.png')` }}>
         <div className="max-w-[1280px] mx-auto px-6 w-full relative z-10 flex flex-col justify-center animate-fadeIn">
           <div className="max-w-[800px]">
             <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-[#7f1d1d] mb-6 leading-tight">
