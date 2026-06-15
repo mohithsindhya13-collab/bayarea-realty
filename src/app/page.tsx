@@ -57,6 +57,25 @@ export default function Home() {
   const [selectedProperty, setSelectedProperty] = useState<Property | null>(null);
   const [activeImageIdx, setActiveImageIdx] = useState<number>(0);
 
+  // Card-specific active image indices for grid cycling
+  const [cardImageIndices, setCardImageIndices] = useState<Record<string | number, number>>({});
+
+  const handleNextImage = (propId: string | number, imagesCount: number, e: React.MouseEvent) => {
+    e.stopPropagation();
+    setCardImageIndices(prev => ({
+      ...prev,
+      [propId]: ((prev[propId] || 0) + 1) % imagesCount
+    }));
+  };
+
+  const handlePrevImage = (propId: string | number, imagesCount: number, e: React.MouseEvent) => {
+    e.stopPropagation();
+    setCardImageIndices(prev => ({
+      ...prev,
+      [propId]: ((prev[propId] || 0) - 1 + imagesCount) % imagesCount
+    }));
+  };
+
   // Mortgage Calculator Sync Target Price
   const [calculatorPrice, setCalculatorPrice] = useState<number>(1500000);
 
@@ -272,65 +291,106 @@ export default function Home() {
 
         {/* Listings Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProperties.map((prop) => (
-            <div key={prop.id} className="group flex flex-col bg-slate-900/40 border border-white/5 hover:border-[#d4af37]/30 rounded-2xl overflow-hidden shadow-2xl transition-all duration-300 hover:-translate-y-2">
-              
-              {/* Card Image header */}
-              <div className="relative h-60 overflow-hidden">
-                <img src={prop.image} alt={prop.title} className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105" />
-                <div className="absolute top-4 left-4 right-4 flex flex-wrap gap-2 z-10">
-                  {prop.solar && <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-sm bg-[#d4af37] text-slate-950">Solar</span>}
-                  {prop.ev_charging && <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-sm bg-[#06b6d4] text-slate-950">EV Ready</span>}
-                  <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-sm bg-slate-950/80 text-slate-200">{prop.school_rating}/10 Schools</span>
-                </div>
-                <div className="absolute bottom-4 left-4 bg-slate-950/85 backdrop-blur-md border border-white/10 rounded-lg px-3 py-1.5 text-lg font-bold text-slate-100 shadow-lg">
-                  {prop.status === 'Rent' ? `$${prop.price.toLocaleString()}/mo` : `$${prop.price.toLocaleString()}`}
-                </div>
-              </div>
+          {filteredProperties.map((prop) => {
+            const activeIdx = cardImageIndices[prop.id] || 0;
+            const imagesList = prop.images && prop.images.length > 0 ? prop.images : [prop.image];
+            const currentImg = imagesList[activeIdx % imagesList.length];
 
-              {/* Card Content body */}
-              <div className="p-6 flex-1 flex flex-col">
-                <h3 className="text-lg font-semibold text-slate-100 mb-1 group-hover:text-[#d4af37] transition-colors line-clamp-1">{prop.title}</h3>
-                <div className="text-slate-400 text-xs flex items-center gap-1 mb-5">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"/><circle cx="12" cy="10" r="3"/></svg>
-                  {prop.neighborhood}, San Jose
-                </div>
+            return (
+              <div 
+                key={prop.id} 
+                onClick={() => { setSelectedProperty(prop); setActiveImageIdx(activeIdx); }}
+                className="group flex flex-col bg-slate-900/40 border border-white/5 hover:border-[#d4af37]/30 rounded-2xl overflow-hidden shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer"
+              >
+                
+                {/* Card Image header */}
+                <div className="relative h-60 overflow-hidden">
+                  <img src={currentImg} alt={prop.title} className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105" />
+                  
+                  {/* Left / Right Cycle Arrows */}
+                  {imagesList.length > 1 && (
+                    <>
+                      <button
+                        onClick={(e) => handlePrevImage(prop.id, imagesList.length, e)}
+                        className="absolute left-3 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-8 h-8 rounded-full bg-slate-950/70 backdrop-blur-sm border border-white/10 text-slate-300 hover:text-white hover:bg-slate-950/90 transition-all opacity-0 group-hover:opacity-100"
+                        title="Previous Image"
+                      >
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+                      </button>
+                      <button
+                        onClick={(e) => handleNextImage(prop.id, imagesList.length, e)}
+                        className="absolute right-3 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-8 h-8 rounded-full bg-slate-950/70 backdrop-blur-sm border border-white/10 text-slate-300 hover:text-white hover:bg-slate-950/90 transition-all opacity-0 group-hover:opacity-100"
+                        title="Next Image"
+                      >
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+                      </button>
+                      
+                      {/* Image dots indicator */}
+                      <div className="absolute bottom-4 right-4 z-10 flex gap-1 bg-slate-950/60 backdrop-blur-sm px-2 py-1 rounded-full border border-white/5">
+                        {imagesList.map((_, i) => (
+                          <div 
+                            key={i} 
+                            className={`w-1.5 h-1.5 rounded-full transition-all ${i === activeIdx ? 'bg-[#d4af37] w-3' : 'bg-slate-500'}`} 
+                          />
+                        ))}
+                      </div>
+                    </>
+                  )}
 
-                <div className="flex gap-6 pb-4 border-b border-white/5 mb-5 text-sm text-slate-300">
-                  <div><strong>{prop.beds}</strong> Bed</div>
-                  <div><strong>{prop.baths}</strong> Bath</div>
-                  <div><strong>{prop.sqft.toLocaleString()}</strong> Sq Ft</div>
-                </div>
-
-                <div className="flex flex-col gap-2 text-xs text-slate-400 mb-6">
-                  <div className="flex items-center gap-2">
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-[#d4af37]"><polyline points="20 6 9 17 4 12"/></svg>
-                    <span>District: {prop.school_details.split(' (')[0]}</span>
+                  <div className="absolute top-4 left-4 right-4 flex flex-wrap gap-2 z-10">
+                    {prop.solar && <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-sm bg-[#d4af37] text-slate-950">Solar</span>}
+                    {prop.ev_charging && <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-sm bg-[#06b6d4] text-slate-950">EV Ready</span>}
+                    <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-sm bg-slate-950/80 text-slate-200">{prop.school_rating}/10 Schools</span>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-[#d4af37]"><polyline points="20 6 9 17 4 12"/></svg>
-                    <span>Nvidia Commute: {prop.commute_times.nvidia} mins</span>
+                  <div className="absolute bottom-4 left-4 bg-slate-950/85 backdrop-blur-md border border-white/10 rounded-lg px-3 py-1.5 text-lg font-bold text-slate-100 shadow-lg z-10">
+                    {prop.status === 'Rent' ? `$${prop.price.toLocaleString()}/mo` : `$${prop.price.toLocaleString()}`}
                   </div>
                 </div>
 
-                <div className="flex justify-between items-center mt-auto">
-                  <button
-                    onClick={() => { setSelectedProperty(prop); setActiveImageIdx(0); }}
-                    className="text-xs font-semibold text-slate-300 border border-white/10 hover:border-[#d4af37] hover:text-[#d4af37] transition-all px-4 py-2 rounded-lg"
-                  >
-                    Explore details
-                  </button>
-                  <button
-                    onClick={() => handleEstimateClick(prop.price, prop.status)}
-                    className="text-xs font-semibold text-slate-950 bg-[#d4af37] hover:bg-[#f3cf65] transition-all px-4 py-2 rounded-lg"
-                  >
-                    Estimate cost
-                  </button>
-                </div>
-              </div>
+                {/* Card Content body */}
+                <div className="p-6 flex-1 flex flex-col">
+                  <h3 className="text-lg font-semibold text-slate-100 mb-1 group-hover:text-[#d4af37] transition-colors line-clamp-1">{prop.title}</h3>
+                  <div className="text-slate-400 text-xs flex items-center gap-1 mb-5">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"/><circle cx="12" cy="10" r="3"/></svg>
+                    {prop.neighborhood}, San Jose
+                  </div>
 
-            </div>
-          ))}
+                  <div className="flex gap-6 pb-4 border-b border-white/5 mb-5 text-sm text-slate-300">
+                    <div><strong>{prop.beds}</strong> Bed</div>
+                    <div><strong>{prop.baths}</strong> Bath</div>
+                    <div><strong>{prop.sqft.toLocaleString()}</strong> Sq Ft</div>
+                  </div>
+
+                  <div className="flex flex-col gap-2 text-xs text-slate-400 mb-6">
+                    <div className="flex items-center gap-2">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-[#d4af37]"><polyline points="20 6 9 17 4 12"/></svg>
+                      <span>District: {prop.school_details.split(' (')[0]}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-[#d4af37]"><polyline points="20 6 9 17 4 12"/></svg>
+                      <span>Nvidia Commute: {prop.commute_times.nvidia} mins</span>
+                    </div>
+                  </div>
+
+                  <div className="flex justify-between items-center mt-auto">
+                    <button
+                      onClick={(e) => { e.stopPropagation(); setSelectedProperty(prop); setActiveImageIdx(activeIdx); }}
+                      className="text-xs font-semibold text-slate-300 border border-white/10 hover:border-[#d4af37] hover:text-[#d4af37] transition-all px-4 py-2 rounded-lg"
+                    >
+                      Explore details
+                    </button>
+                    <button
+                      onClick={(e) => { e.stopPropagation(); handleEstimateClick(prop.price, prop.status); }}
+                      className="text-xs font-semibold text-slate-950 bg-[#d4af37] hover:bg-[#f3cf65] transition-all px-4 py-2 rounded-lg"
+                    >
+                      Estimate cost
+                    </button>
+                  </div>
+                </div>
+
+              </div>
+            );
+          })}
 
           {filteredProperties.length === 0 && (
             <div className="col-span-full text-center py-20 text-slate-400">
