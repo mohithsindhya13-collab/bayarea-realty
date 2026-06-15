@@ -21,11 +21,11 @@ export function Header({ onAdminClick, onSellClick, isAdminLoggedIn }: HeaderPro
   return (
     <header className="fixed top-0 left-0 right-0 z-50 h-20 bg-slate-950/75 backdrop-blur-md border-b border-white/5 transition-all">
       <div className="max-width-1280 mx-auto px-6 h-full flex items-center justify-between">
-        <a href="#" className="flex items-center gap-2 text-xl font-bold tracking-wider text-white">
-          <div className="w-8 h-8 rounded-full border-2 border-[#d4af37] flex items-center justify-center text-xs font-black text-[#d4af37]">
+        <a href="#" className="flex items-center gap-2 text-xl font-bold tracking-wider text-slate-900">
+          <div className="w-8 h-8 rounded-full border-2 border-[#991b1b] flex items-center justify-center text-xs font-black text-[#991b1b]">
             V
           </div>
-          VALLEY & CO. <span className="font-serif font-normal text-slate-300">REALTY</span>
+          VALLEY & CO. <span className="font-serif font-normal text-[#991b1b]">REALTY</span>
         </a>
 
         <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-400">

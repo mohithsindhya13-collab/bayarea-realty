@@ -221,7 +221,7 @@ export default function Home() {
   };
 
   return (
-    <div className="bg-slate-950 min-h-screen text-slate-100 selection:bg-[#d4af37] selection:text-slate-950">
+    <div className="bg-[#fcfbfb] min-h-screen text-slate-800 selection:bg-[#fee2e2] selection:text-[#991b1b]">
       
       {/* Navbar header */}
       <Header
@@ -231,14 +231,14 @@ export default function Home() {
       />
 
       {/* Hero section */}
-      <section className="relative min-h-[90vh] flex items-center pt-24 pb-12 overflow-hidden bg-cover bg-center" style={{ backgroundImage: `linear-gradient(rgba(11, 15, 25, 0.7), rgba(11, 15, 25, 0.98)), url('/assets/images/hero_background.png')` }}>
+      <section className="relative min-h-[90vh] flex items-center pt-24 pb-12 overflow-hidden bg-cover bg-center" style={{ backgroundImage: `linear-gradient(rgba(253, 251, 251, 0.8), rgba(253, 251, 251, 0.96)), url('/assets/images/hero_background.png')` }}>
         <div className="max-w-[1280px] mx-auto px-6 w-full relative z-10 flex flex-col justify-center animate-fadeIn">
           <div className="max-w-[800px]">
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white mb-6 leading-tight">
-              Find Your <span className="text-[#d4af37]">Silicon Valley</span><br />
-              <span className="font-serif font-normal italic text-slate-200">Dream Home</span>
+            <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-[#7f1d1d] mb-6 leading-tight">
+              Find Your <span className="text-[#991b1b]">Silicon Valley</span><br />
+              <span className="font-serif font-normal italic text-slate-800">Dream Home</span>
             </h1>
-            <p className="text-slate-400 text-lg md:text-xl font-medium mb-12 max-w-[620px] leading-relaxed">
+            <p className="text-slate-600 text-lg md:text-xl font-medium mb-12 max-w-[620px] leading-relaxed">
               Tailored real estate services for the California Bay Area. View premium listings aligned with elite school districts and proximity to major tech campuses.
             </p>
 

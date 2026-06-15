@@ -42,32 +42,32 @@
 }
 
 :root {
-  --background: oklch(0.12 0.015 250); /* Dark slate background */
-  --foreground: oklch(0.985 0 0);
+  --background: #fdfdfd;
+  --foreground: #111827;
   
-  --card: oklch(0.15 0.02 250);
-  --card-foreground: oklch(0.985 0 0);
+  --card: #ffffff;
+  --card-foreground: #111827;
   
-  --popover: oklch(0.15 0.02 250);
-  --popover-foreground: oklch(0.985 0 0);
+  --popover: #ffffff;
+  --popover-foreground: #111827;
   
-  --primary: oklch(0.985 0 0);
-  --primary-foreground: oklch(0.205 0 0);
+  --primary: #991b1b; /* Luxurious deep red */
+  --primary-foreground: #ffffff;
   
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
+  --secondary: #f3f4f6;
+  --secondary-foreground: #111827;
   
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
+  --muted: #f3f4f6;
+  --muted-foreground: #6b7280;
   
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
+  --accent: #fee2e2;
+  --accent-foreground: #991b1b;
   
-  --destructive: oklch(0.704 0.191 22.216);
+  --destructive: #dc2626;
   
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 12%);
-  --ring: oklch(0.556 0 0);
+  --border: #fee2e2; /* Soft red-tinted border */
+  --input: #fee2e2;
+  --ring: #991b1b;
   --radius: 0.75rem;
 }
 
@@ -112,6 +112,119 @@ table {
   }
   body {
     @apply bg-background text-foreground font-sans antialiased;
-    background-color: #0b0f19;
+    background-color: #fcfbfb !important;
+    color: #1f2937 !important;
   }
+}
+
+/* Light Mode Overrides for Dark Slate classes */
+.bg-slate-900,
+.bg-slate-950,
+.bg-slate-900\/40,
+.bg-slate-900\/75,
+.bg-slate-950\/60,
+.bg-slate-950\/85,
+.bg-slate-950\/90,
+.bg-white\/2,
+.bg-white\/5 {
+  background-color: #ffffff !important;
+}
+
+.text-slate-100,
+.text-slate-200,
+.text-slate-300,
+.text-slate-50,
+.text-white {
+  color: #111827 !important;
+}
+
+.text-slate-400,
+.text-slate-500 {
+  color: #6b7280 !important;
+}
+
+.border-white\/5,
+.border-white\/10,
+.border-white\/20,
+.border-slate-800 {
+  border-color: #fee2e2 !important;
+}
+
+/* Glassmorphism backgrounds for navbar, search filters, and detail cards */
+.backdrop-blur-md,
+.backdrop-blur-sm {
+  backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(255, 255, 255, 0.85) !important;
+  border-color: rgba(153, 27, 27, 0.1) !important;
+}
+
+/* Page titles & headings styled as rich burgundy red */
+h1, h2, h3, h4, h5, h6,
+.group-hover\:text-\[\#d4af37\] {
+  color: #7f1d1d !important;
+}
+
+/* Brand logo and custom highlighted red features */
+.bg-\[\#d4af37\] {
+  background-color: #991b1b !important; /* Rich crimson red buttons */
+  color: #ffffff !important;
+}
+
+.bg-\[\#d4af37\]:hover,
+.hover\:bg-\[\#f3cf65\]:hover {
+  background-color: #7f1d1d !important; /* Deep burgundy hover */
+  color: #ffffff !important;
+}
+
+.text-gold,
+.text-\[\#d4af37\] {
+  color: #991b1b !important;
+}
+
+.hover\:text-\[\#d4af37\]:hover {
+  color: #7f1d1d !important;
+}
+
+.hover\:border-\[\#d4af37\]:hover {
+  border-color: #991b1b !important;
+}
+
+.border-\[\#d4af37\]\/30,
+.hover\:border-\[\#d4af37\]\/30:hover {
+  border-color: rgba(153, 27, 27, 0.2) !important;
+}
+
+/* Navigation links */
+nav a {
+  color: #374151 !important;
+}
+
+nav a:hover,
+.hover\:text-white:hover,
+.hover\:text-slate-200:hover,
+.hover\:text-slate-300:hover {
+  color: #991b1b !important;
+}
+
+/* Active navigation tab & buttons */
+[data-state="active"] {
+  background-color: #fee2e2 !important;
+  color: #991b1b !important;
+  border-color: #fee2e2 !important;
+}
+
+/* Inputs, textareas, and selects */
+input, select, textarea {
+  background-color: #ffffff !important;
+  color: #111827 !important;
+  border: 1px solid #fee2e2 !important;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: #991b1b !important;
+  outline: none;
+}
+
+input::placeholder, textarea::placeholder {
+  color: #9ca3af !important;
 }
