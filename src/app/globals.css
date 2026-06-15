@@ -51,8 +51,8 @@
   --popover: #faf9f6;
   --popover-foreground: #111827;
   
-  --primary: #0f2942; /* Luxurious navy blue */
-  --primary-foreground: #faf9f6;
+  --primary: #991b1b; /* Luxurious deep red */
+  --primary-foreground: #ffffff;
   
   --secondary: #eae6db; /* Slightly darker bone */
   --secondary-foreground: #111827;
@@ -60,14 +60,14 @@
   --muted: #eae6db;
   --muted-foreground: #6b7280;
   
-  --accent: #e6ecf5; /* Soft ice-blue/navy accent */
-  --accent-foreground: #0f2942;
+  --accent: #fee2e2; /* Soft red accent */
+  --accent-foreground: #991b1b;
   
   --destructive: #dc2626;
   
   --border: #e6e1d5; /* Soft bone-tinted border */
   --input: #e6e1d5;
-  --ring: #0f2942;
+  --ring: #991b1b;
   --radius: 0.75rem;
 }
 
@@ -165,43 +165,43 @@ table {
 .backdrop-blur-sm {
   backdrop-filter: blur(16px) saturate(180%);
   background-color: rgba(250, 249, 246, 0.85) !important;
-  border-color: rgba(15, 41, 66, 0.1) !important;
+  border-color: rgba(153, 27, 27, 0.1) !important;
 }
 
-/* Page titles & headings styled as rich navy blue */
+/* Page titles & headings styled as rich burgundy red */
 h1, h2, h3, h4, h5, h6,
 .group-hover\:text-\[\#d4af37\] {
-  color: #0b1d33 !important;
+  color: #7f1d1d !important;
 }
 
-/* Brand logo and custom highlighted navy features */
+/* Brand logo and custom highlighted red features */
 .bg-\[\#d4af37\] {
-  background-color: #0f2942 !important; /* Rich navy blue buttons */
-  color: #faf9f6 !important;
+  background-color: #991b1b !important; /* Rich crimson red buttons */
+  color: #ffffff !important;
 }
 
 .bg-\[\#d4af37\]:hover,
 .hover\:bg-\[\#f3cf65\]:hover {
-  background-color: #1d3557 !important; /* Lighter navy hover */
+  background-color: #7f1d1d !important; /* Deep burgundy hover */
   color: #ffffff !important;
 }
 
 .text-gold,
 .text-\[\#d4af37\] {
-  color: #0f2942 !important;
+  color: #991b1b !important;
 }
 
 .hover\:text-\[\#d4af37\]:hover {
-  color: #1d3557 !important;
+  color: #7f1d1d !important;
 }
 
 .hover\:border-\[\#d4af37\]:hover {
-  border-color: #0f2942 !important;
+  border-color: #991b1b !important;
 }
 
 .border-\[\#d4af37\]\/30,
 .hover\:border-\[\#d4af37\]\/30:hover {
-  border-color: rgba(15, 41, 66, 0.2) !important;
+  border-color: rgba(153, 27, 27, 0.2) !important;
 }
 
 /* Navigation links */
@@ -213,14 +213,14 @@ nav a:hover,
 .hover\:text-white:hover,
 .hover\:text-slate-200:hover,
 .hover\:text-slate-300:hover {
-  color: #0f2942 !important;
+  color: #991b1b !important;
 }
 
 /* Active navigation tab & buttons */
 [data-state="active"] {
-  background-color: #e6ecf5 !important;
-  color: #0f2942 !important;
-  border-color: #e6ecf5 !important;
+  background-color: #fee2e2 !important;
+  color: #991b1b !important;
+  border-color: #fee2e2 !important;
 }
 
 /* Inputs, textareas, and selects */
@@ -231,7 +231,7 @@ input, select, textarea {
 }
 
 input:focus, select:focus, textarea:focus {
-  border-color: #0f2942 !important;
+  border-color: #991b1b !important;
   outline: none;
 }
 

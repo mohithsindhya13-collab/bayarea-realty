@@ -221,7 +221,7 @@ export default function Home() {
   };
 
   return (
-    <div className="bg-[#f5f2eb] min-h-screen text-slate-800 selection:bg-[#e6ecf5] selection:text-[#0f2942]">
+    <div className="bg-[#f5f2eb] min-h-screen text-slate-800 selection:bg-[#fee2e2] selection:text-[#991b1b]">
 
       {/* Navbar header */}
       <Header
@@ -234,8 +234,8 @@ export default function Home() {
       <section className="relative min-h-[90vh] flex items-center pt-24 pb-12 overflow-hidden bg-cover bg-center hero-section-bg">
         <div className="max-w-[1280px] mx-auto px-6 w-full relative z-10 flex flex-col justify-center animate-fadeIn">
           <div className="max-w-[800px]">
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-[#0b1d33] mb-6 leading-tight">
-              Find Your <span className="text-[#0f2942]">Silicon Valley</span><br />
+            <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-[#7f1d1d] mb-6 leading-tight">
+              Find Your <span className="text-[#991b1b]">Silicon Valley</span><br />
               <span className="font-serif font-normal italic text-slate-800">Dream Home</span>
             </h1>
             <p className="text-slate-600 text-lg md:text-xl font-medium mb-12 max-w-[620px] leading-relaxed">
