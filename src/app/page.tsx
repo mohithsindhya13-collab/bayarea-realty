@@ -231,18 +231,18 @@ export default function Home() {
       />
 
       {/* Hero section */}
-      <section className="relative min-h-[80vh] flex items-center pt-20 pb-10 overflow-hidden bg-cover bg-center hero-section-bg">
+      <section className="relative min-h-[70vh] flex items-center pt-16 pb-8 overflow-hidden bg-cover bg-center hero-section-bg">
         <div className="max-w-[1280px] mx-auto px-6 w-full relative z-10 flex flex-col justify-center">
           <div className="max-w-[800px]">
             <h1 className="reveal-1 text-5xl md:text-7xl font-bold tracking-tight text-[#7f1d1d] mb-6 leading-tight">
               Find Your <span className="text-[#991b1b]">Silicon Valley</span><br />
               <span className="font-serif font-normal italic text-slate-800">Dream Home</span>
             </h1>
-            <p className="reveal-2 text-slate-600 text-lg md:text-xl font-medium mb-12 max-w-[620px] leading-relaxed">
+            <p className="reveal-2 text-slate-600 text-lg md:text-xl font-medium mb-6 max-w-[620px] leading-relaxed">
               Tailored real estate services for the California Bay Area. View premium listings aligned with elite school districts and proximity to major tech campuses.
             </p>
 
-            <div className="reveal-3 flex flex-wrap gap-12 mt-4">
+            <div className="reveal-3 flex flex-wrap gap-8 mt-4">
               <div className="flex flex-col">
                 <span className="text-4xl font-bold text-[#d4af37] tracking-tight">$1.5M</span>
                 <span className="text-xs uppercase tracking-widest text-slate-500 font-semibold mt-1">Median Price</span>
@@ -338,9 +338,9 @@ export default function Home() {
                   )}
 
                   <div className="absolute top-4 left-4 right-4 flex flex-wrap gap-2 z-10">
-                    {prop.solar && <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-sm bg-[#d4af37] text-slate-950">Solar</span>}
-                    {prop.ev_charging && <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-sm bg-[#06b6d4] text-slate-950">EV Ready</span>}
-                    <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-sm bg-slate-950/80 text-slate-200">{prop.school_rating}/10 Schools</span>
+                    {prop.solar && <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-sm badge-solar">Solar</span>}
+                    {prop.ev_charging && <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-sm badge-ev">EV Ready</span>}
+                    <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-sm badge-schools">{prop.school_rating}/10 Schools</span>
                   </div>
                   <div className="absolute bottom-4 left-4 bg-slate-950/85 backdrop-blur-md border border-white/10 rounded-lg px-3 py-1.5 text-lg font-bold text-slate-100 shadow-lg z-10">
                     {prop.status === 'Rent' ? `$${prop.price.toLocaleString()}/mo` : `$${prop.price.toLocaleString()}`}
@@ -348,20 +348,20 @@ export default function Home() {
                 </div>
 
                 {/* Card Content body */}
-                <div className="p-5 flex-1 flex flex-col">
+                <div className="p-4 flex-1 flex flex-col">
                   <h3 className="text-lg font-semibold text-slate-100 mb-1 group-hover:text-[#d4af37] transition-colors line-clamp-1">{prop.title}</h3>
-                  <div className="text-slate-400 text-xs flex items-center gap-1 mb-3">
+                  <div className="text-slate-400 text-xs flex items-center gap-1 mb-2.5">
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z" /><circle cx="12" cy="10" r="3" /></svg>
                     {prop.neighborhood}, San Jose
                   </div>
 
-                  <div className="flex gap-4 pb-3 border-b border-white/5 mb-4 text-xs text-slate-300">
+                  <div className="flex gap-4 pb-3 border-b border-white/5 mb-3 text-xs text-slate-300">
                     <div><strong>{prop.beds}</strong> Bed</div>
                     <div><strong>{prop.baths}</strong> Bath</div>
                     <div><strong>{prop.sqft.toLocaleString()}</strong> Sq Ft</div>
                   </div>
 
-                  <div className="flex flex-col gap-1.5 text-xs text-slate-400 mb-5">
+                  <div className="flex flex-col gap-1.5 text-xs text-slate-400 mb-4">
                     <div className="flex items-center gap-2">
                       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-[#d4af37]"><polyline points="20 6 9 17 4 12" /></svg>
                       <span>District: {prop.school_details.split(' (')[0]}</span>

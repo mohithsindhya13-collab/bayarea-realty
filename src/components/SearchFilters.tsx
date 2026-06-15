@@ -32,17 +32,17 @@ export function SearchFilters({ filters, onChange }: SearchFiltersProps) {
   };
 
   return (
-    <div className="w-full bg-slate-900/75 backdrop-blur-md border border-white/5 shadow-2xl rounded-2xl p-5">
+    <div className="w-full bg-slate-900/75 backdrop-blur-md border border-white/5 shadow-2xl rounded-2xl p-4">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
         
         {/* Neighborhood */}
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-1.5">
           <Label htmlFor="neighborhood" className="text-xs uppercase tracking-wider text-slate-400 font-medium">Neighborhood</Label>
           <Select
             value={filters.neighborhood}
             onValueChange={(val) => val && updateFilter('neighborhood', val)}
           >
-            <SelectTrigger className="w-full bg-white/5 border-white/10 rounded-xl text-slate-100 h-11">
+            <SelectTrigger className="w-full bg-white/5 border-white/10 rounded-xl text-slate-100">
               <SelectValue placeholder="All San Jose Areas" />
             </SelectTrigger>
             <SelectContent className="bg-slate-900 border-white/10 text-slate-100">
@@ -60,13 +60,13 @@ export function SearchFilters({ filters, onChange }: SearchFiltersProps) {
         </div>
 
         {/* Max Price */}
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-1.5">
           <Label htmlFor="maxPrice" className="text-xs uppercase tracking-wider text-slate-400 font-medium">Max Price</Label>
           <Select
             value={filters.maxPrice}
             onValueChange={(val) => val && updateFilter('maxPrice', val)}
           >
-            <SelectTrigger className="w-full bg-white/5 border-white/10 rounded-xl text-slate-100 h-11">
+            <SelectTrigger className="w-full bg-white/5 border-white/10 rounded-xl text-slate-100">
               <SelectValue placeholder="Any Price" />
             </SelectTrigger>
             <SelectContent className="bg-slate-900 border-white/10 text-slate-100">
@@ -82,13 +82,13 @@ export function SearchFilters({ filters, onChange }: SearchFiltersProps) {
         </div>
 
         {/* Property Type */}
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-1.5">
           <Label htmlFor="type" className="text-xs uppercase tracking-wider text-slate-400 font-medium">Property Type</Label>
           <Select
             value={filters.type}
             onValueChange={(val) => val && updateFilter('type', val)}
           >
-            <SelectTrigger className="w-full bg-white/5 border-white/10 rounded-xl text-slate-100 h-11">
+            <SelectTrigger className="w-full bg-white/5 border-white/10 rounded-xl text-slate-100">
               <SelectValue placeholder="All Types" />
             </SelectTrigger>
             <SelectContent className="bg-slate-900 border-white/10 text-slate-100">
@@ -101,13 +101,13 @@ export function SearchFilters({ filters, onChange }: SearchFiltersProps) {
         </div>
 
         {/* Transaction */}
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-1.5">
           <Label htmlFor="status" className="text-xs uppercase tracking-wider text-slate-400 font-medium">Transaction</Label>
           <Select
             value={filters.status}
             onValueChange={(val) => val && updateFilter('status', val)}
           >
-            <SelectTrigger className="w-full bg-white/5 border-white/10 rounded-xl text-slate-100 h-11">
+            <SelectTrigger className="w-full bg-white/5 border-white/10 rounded-xl text-slate-100">
               <SelectValue placeholder="Buy or Rent" />
             </SelectTrigger>
             <SelectContent className="bg-slate-900 border-white/10 text-slate-100">
@@ -133,13 +133,13 @@ export function SearchFilters({ filters, onChange }: SearchFiltersProps) {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-4 pt-4 border-t border-white/5 animate-fadeIn">
           
           {/* Min School Rating */}
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-1.5">
             <Label htmlFor="minSchools" className="text-xs uppercase tracking-wider text-slate-400 font-medium">Min School Rating</Label>
             <Select
               value={filters.minSchools.toString()}
               onValueChange={(val) => val && updateFilter('minSchools', parseInt(val))}
             >
-              <SelectTrigger className="w-full bg-white/5 border-white/10 rounded-xl text-slate-100 h-11">
+              <SelectTrigger className="w-full bg-white/5 border-white/10 rounded-xl text-slate-100">
                 <SelectValue placeholder="Any Rating" />
               </SelectTrigger>
               <SelectContent className="bg-slate-900 border-white/10 text-slate-100">
@@ -152,13 +152,13 @@ export function SearchFilters({ filters, onChange }: SearchFiltersProps) {
           </div>
 
           {/* Commute Target */}
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-1.5">
             <Label htmlFor="commuteTarget" className="text-xs uppercase tracking-wider text-slate-400 font-medium">Commute Target</Label>
             <Select
               value={filters.commuteTarget}
               onValueChange={(val) => val && updateFilter('commuteTarget', val)}
             >
-              <SelectTrigger className="w-full bg-white/5 border-white/10 rounded-xl text-slate-100 h-11">
+              <SelectTrigger className="w-full bg-white/5 border-white/10 rounded-xl text-slate-100">
                 <SelectValue placeholder="Any Campus" />
               </SelectTrigger>
               <SelectContent className="bg-slate-900 border-white/10 text-slate-100">
@@ -172,13 +172,13 @@ export function SearchFilters({ filters, onChange }: SearchFiltersProps) {
           </div>
 
           {/* Max Commute Time */}
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-1.5">
             <Label htmlFor="maxCommuteTime" className="text-xs uppercase tracking-wider text-slate-400 font-medium">Max Commute Time</Label>
             <Select
               value={filters.maxCommuteTime.toString()}
               onValueChange={(val) => val && updateFilter('maxCommuteTime', parseInt(val))}
             >
-              <SelectTrigger className="w-full bg-white/5 border-white/10 rounded-xl text-slate-100 h-11">
+              <SelectTrigger className="w-full bg-white/5 border-white/10 rounded-xl text-slate-100">
                 <SelectValue placeholder="Any Time" />
               </SelectTrigger>
               <SelectContent className="bg-slate-900 border-white/10 text-slate-100">

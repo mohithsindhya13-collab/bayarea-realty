@@ -81,10 +81,10 @@ export function MortgageCalculator({ initialPrice = 1500000 }: MortgageCalculato
 
     return {
       background: `conic-gradient(
-        #d4af37 0% ${pctPi}%,
-        #06b6d4 ${pctPi}% ${pctPi + pctTax}%,
-        #10b981 ${pctPi + pctTax}% ${pctPi + pctTax + pctInsurance}%,
-        #ef4444 ${pctPi + pctTax + pctInsurance}% 100%
+        #991b1b 0% ${pctPi}%,
+        #c5a059 ${pctPi}% ${pctPi + pctTax}%,
+        #4b5563 ${pctPi + pctTax}% ${pctPi + pctTax + pctInsurance}%,
+        #8c7e6b ${pctPi + pctTax + pctInsurance}% 100%
       )`
     };
   };
@@ -94,9 +94,9 @@ export function MortgageCalculator({ initialPrice = 1500000 }: MortgageCalculato
   };
 
   return (
-    <section id="calculator-section" className="py-16 bg-slate-900 border-t border-white/5">
+    <section id="calculator-section" className="py-10 bg-slate-900 border-t border-white/5">
       <div className="max-w-[1280px] mx-auto px-6">
-        <div className="text-center mb-10">
+        <div className="text-center mb-6">
           <h2 className="text-4xl font-serif text-white mb-3">San Jose Affordability Calculator</h2>
           <p className="text-slate-400 text-sm max-w-[600px] mx-auto">
             Estimate monthly expenses using current Bay Area tax guidelines and prevailing interest rates.
@@ -221,35 +221,35 @@ export function MortgageCalculator({ initialPrice = 1500000 }: MortgageCalculato
           </div>
 
           {/* Results Display */}
-          <div className="bg-slate-950/60 backdrop-blur-md border border-white/5 shadow-2xl rounded-2xl p-10 flex flex-col items-center">
+          <div className="bg-slate-950/60 backdrop-blur-md border border-white/5 shadow-2xl rounded-2xl p-6 flex flex-col items-center">
             
-            <div className="text-center pb-8 border-b border-white/5 w-full">
+            <div className="text-center pb-6 border-b border-white/5 w-full">
               <div className="text-slate-400 text-sm mb-1">Estimated Monthly Payment</div>
               <div className="text-5xl font-bold text-[#d4af37] tracking-tight">{formatCurrency(monthlyTotal)}</div>
             </div>
 
-            <div className="w-full flex flex-col gap-4 py-8 border-b border-white/5">
+            <div className="w-full flex flex-col gap-3.5 py-6 border-b border-white/5">
               <div className="flex justify-between items-center text-sm">
                 <span className="flex items-center gap-2 text-slate-400">
-                  <div className="w-3 h-3 rounded-full bg-[#d4af37]" /> Principal & Interest
+                  <div className="w-3 h-3 rounded-full bg-[#991b1b]" /> Principal & Interest
                 </span>
                 <span className="font-semibold text-slate-200">{formatCurrency(pi)}</span>
               </div>
               <div className="flex justify-between items-center text-sm">
                 <span className="flex items-center gap-2 text-slate-400">
-                  <div className="w-3 h-3 rounded-full bg-[#06b6d4]" /> Property Taxes
+                  <div className="w-3 h-3 rounded-full bg-[#c5a059]" /> Property Taxes
                 </span>
                 <span className="font-semibold text-slate-200">{formatCurrency(taxes)}</span>
               </div>
               <div className="flex justify-between items-center text-sm">
                 <span className="flex items-center gap-2 text-slate-400">
-                  <div className="w-3 h-3 rounded-full bg-[#10b981]" /> Homeowner's Insurance
+                  <div className="w-3 h-3 rounded-full bg-[#4b5563]" /> Homeowner's Insurance
                 </span>
                 <span className="font-semibold text-slate-200">{formatCurrency(insurance)}</span>
               </div>
               <div className="flex justify-between items-center text-sm">
                 <span className="flex items-center gap-2 text-slate-400">
-                  <div className="w-3 h-3 rounded-full bg-[#ef4444]" /> HOA Fees
+                  <div className="w-3 h-3 rounded-full bg-[#8c7e6b]" /> HOA Fees
                 </span>
                 <span className="font-semibold text-slate-200">{formatCurrency(hoa)}</span>
               </div>

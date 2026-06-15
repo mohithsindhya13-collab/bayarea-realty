@@ -10,7 +10,7 @@ interface FooterProps {
 
 export function Footer({ onLocationClick, onStatusClick, onValuationClick }: FooterProps) {
   return (
-    <footer className="bg-slate-950/90 border-t border-white/5 pt-20 pb-12">
+    <footer className="bg-slate-950/90 border-t border-white/5 pt-12 pb-8">
       <div className="max-w-[1280px] mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
         <div className="flex flex-col gap-6">
           <a href="#" className="flex items-center gap-2 text-xl font-bold tracking-wider text-white">

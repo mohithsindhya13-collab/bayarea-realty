@@ -406,7 +406,7 @@ export function AdminPortal({
                 </TabsTrigger>
                 <TabsTrigger value="import" className="w-full justify-between px-4 py-3 rounded-lg text-slate-400 data-[state=active]:bg-[#d4af37]/10 data-[state=active]:text-[#d4af37] border border-transparent data-[state=active]:border-[#d4af37]/20">
                   <span>MLS CSV Import</span>
-                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#06b6d4]/10 text-[#06b6d4] font-bold">CSV</span>
+                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#991b1b]/10 text-[#991b1b] font-bold">CSV</span>
                 </TabsTrigger>
                 <TabsTrigger value="tours" className="w-full justify-between px-4 py-3 rounded-lg text-slate-400 data-[state=active]:bg-[#d4af37]/10 data-[state=active]:text-[#d4af37] border border-transparent data-[state=active]:border-[#d4af37]/20">
                   <span>Tour Requests</span>
@@ -506,7 +506,7 @@ export function AdminPortal({
                   <p className="text-xs text-slate-400 leading-relaxed">
                     Our importer dynamically maps columns. Your CSV should contain columns matching or close to:
                   </p>
-                  <code className="block bg-black/30 p-3 rounded-lg mt-3 text-xs text-[#06b6d4] font-mono overflow-x-auto whitespace-nowrap">
+                  <code className="block bg-black/30 p-3 rounded-lg mt-3 text-xs text-[#c5a059] font-mono overflow-x-auto whitespace-nowrap">
                     MLS#, Title/Street/Address, Price/ListPrice, Beds/Bedrooms, Baths/Bathrooms, SqFt/SqFtTotal, Remarks/Description, Neighborhood/City
                   </code>
                 </div>
@@ -540,7 +540,7 @@ export function AdminPortal({
                         <TableCell>
                           <span className={`text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-sm ${
                             t.status === 'Contacted' 
-                              ? 'bg-blue-500/20 text-blue-400' 
+                              ? 'bg-[#10b981]/20 text-[#10b981]' 
                               : t.status === 'Archived'
                                 ? 'bg-slate-800 text-slate-500'
                                 : 'bg-[#d4af37]/20 text-[#d4af37]'
@@ -592,7 +592,7 @@ export function AdminPortal({
                         <TableCell>
                           <span className={`text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-sm ${
                             s.status === 'Contacted' 
-                              ? 'bg-blue-500/20 text-blue-400' 
+                              ? 'bg-[#10b981]/20 text-[#10b981]' 
                               : s.status === 'Archived'
                                 ? 'bg-slate-800 text-slate-500'
                                 : 'bg-[#d4af37]/20 text-[#d4af37]'
