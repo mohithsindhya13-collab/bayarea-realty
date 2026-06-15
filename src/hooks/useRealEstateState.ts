@@ -90,9 +90,19 @@ export function useRealEstateState() {
         );
         const finalMerged = [...updated, ...missing];
 
-        if (JSON.stringify(parsed) !== JSON.stringify(finalMerged)) {
-          setProperties(finalMerged);
-          localStorage.setItem('valley_properties', JSON.stringify(finalMerged));
+        // Deduplicate finalMerged by ID to guarantee key uniqueness
+        const uniqueProps: Property[] = [];
+        const seenIds = new Set<string | number>();
+        for (const p of finalMerged) {
+          if (p.id !== undefined && !seenIds.has(p.id)) {
+            seenIds.add(p.id);
+            uniqueProps.push(p);
+          }
+        }
+
+        if (JSON.stringify(parsed) !== JSON.stringify(uniqueProps)) {
+          setProperties(uniqueProps);
+          localStorage.setItem('valley_properties', JSON.stringify(uniqueProps));
         } else {
           setProperties(parsed);
         }
