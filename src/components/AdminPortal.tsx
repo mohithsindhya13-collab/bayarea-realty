@@ -325,7 +325,7 @@ export function AdminPortal({
                   onClick={() => handleAgentClick(agent)}
                   className="flex flex-col items-center gap-3 p-5 rounded-xl border border-[#e6e1d5] bg-white hover:bg-[#991b1b]/5 hover:border-[#991b1b] transition-all group"
                 >
-                  <div className="w-12 h-12 rounded-full bg-[#991b1b] text-white font-bold flex items-center justify-center text-lg shadow-inner group-hover:scale-105 transition-all">
+                  <div className="w-12 h-12 rounded-full bg-[#991b1b] text-[#ffffff] font-bold flex items-center justify-center text-lg shadow-inner group-hover:scale-105 transition-all">
                     {agent.initial}
                   </div>
                   <span className="text-sm font-semibold text-[#111827]">{agent.name}</span>
@@ -335,7 +335,7 @@ export function AdminPortal({
           ) : (
             <form onSubmit={handleLoginSubmit} className="flex flex-col gap-4">
               <div className="flex items-center gap-3 pb-4 border-b border-[#e6e1d5] mb-2">
-                <div className="w-10 h-10 rounded-full bg-[#991b1b] text-white font-bold flex items-center justify-center">
+                <div className="w-10 h-10 rounded-full bg-[#991b1b] text-[#ffffff] font-bold flex items-center justify-center">
                   {selectedAgent.initial}
                 </div>
                 <div>
@@ -364,7 +364,7 @@ export function AdminPortal({
                 <Button type="button" onClick={() => setSelectedAgent(null)} className="flex-1 bg-transparent border border-[#e6e1d5] text-[#374151] hover:bg-[#eae6db] h-11">
                   Back
                 </Button>
-                <Button type="submit" className="flex-1 bg-[#991b1b] text-white hover:bg-[#7f1d1d] font-semibold h-11">
+                <Button type="submit" className="flex-1 bg-[#991b1b] text-[#ffffff] hover:bg-[#7f1d1d] font-semibold h-11">
                   Authorize
                 </Button>
               </div>
@@ -388,7 +388,7 @@ export function AdminPortal({
               <Button onClick={handleLogout} className="bg-transparent border border-[#e6e1d5] text-[#374151] hover:bg-[#eae6db] text-xs h-9">
                 Exit Portal
               </Button>
-              <Button onClick={onClose} className="bg-[#991b1b] text-white hover:bg-[#7f1d1d] text-xs h-9 font-semibold">
+              <Button onClick={onClose} className="bg-[#991b1b] text-[#ffffff] hover:bg-[#7f1d1d] text-xs h-9 font-semibold">
                 Close
               </Button>
             </div>
@@ -406,7 +406,7 @@ export function AdminPortal({
                 </TabsTrigger>
                 <TabsTrigger value="import" className="w-full justify-between px-4 py-3 rounded-lg text-[#4b5563] hover:text-[#991b1b] data-[state=active]:bg-[#991b1b]/10 data-[state=active]:text-[#991b1b] border border-transparent data-[state=active]:border-[#991b1b]/20 transition-all font-medium">
                   <span>MLS CSV Import</span>
-                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#991b1b]/10 text-[#991b1b] font-bold">CSV</span>
+                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#eae6db] text-[#4b5563] font-bold border border-[#e6e1d5]">CSV</span>
                 </TabsTrigger>
                 <TabsTrigger value="tours" className="w-full justify-between px-4 py-3 rounded-lg text-[#4b5563] hover:text-[#991b1b] data-[state=active]:bg-[#991b1b]/10 data-[state=active]:text-[#991b1b] border border-transparent data-[state=active]:border-[#991b1b]/20 transition-all font-medium">
                   <span>Tour Requests</span>
@@ -422,7 +422,7 @@ export function AdminPortal({
               <TabsContent value="listings" className="flex-1 p-8 overflow-y-auto m-0">
                 <div className="flex justify-between items-center mb-6">
                   <h3 className="text-lg font-bold tracking-tight text-[#7f1d1d]">Listing Directory</h3>
-                  <Button onClick={() => setIsAddOpen(true)} className="bg-[#991b1b] text-white hover:bg-[#7f1d1d] font-semibold text-xs h-9">
+                  <Button onClick={() => setIsAddOpen(true)} className="bg-[#991b1b] text-[#ffffff] hover:bg-[#7f1d1d] font-semibold text-xs h-9">
                     + Add Listing Manually
                   </Button>
                 </div>
@@ -450,7 +450,7 @@ export function AdminPortal({
                         <TableCell className="text-[#374151] font-semibold">${prop.price.toLocaleString()}</TableCell>
                         <TableCell>
                           <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-sm ${
-                            prop.status === 'Buy' ? 'bg-[#fee2e2] text-[#991b1b]' : 'bg-emerald-50 text-emerald-800'
+                            prop.status === 'Buy' ? 'bg-[#991b1b] text-[#ffffff]' : 'bg-[#4b5563] text-[#ffffff]'
                           }`}>
                             {prop.status === 'Buy' ? 'For Sale' : 'For Lease'}
                           </span>
@@ -540,10 +540,10 @@ export function AdminPortal({
                         <TableCell>
                           <span className={`text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-sm ${
                             t.status === 'Contacted' 
-                              ? 'bg-emerald-50 text-emerald-800' 
+                              ? 'bg-[#10b981] text-[#ffffff]' 
                               : t.status === 'Archived'
-                                ? 'bg-[#eae6db]/50 text-[#6e6e73]'
-                                : 'bg-[#fbf7ee] text-[#a6813b]'
+                                ? 'bg-[#8c7e6b] text-[#ffffff]'
+                                : 'bg-[#c5a059] text-[#ffffff]'
                           }`}>
                             {t.status || 'Pending'}
                           </span>
@@ -592,10 +592,10 @@ export function AdminPortal({
                         <TableCell>
                           <span className={`text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-sm ${
                             s.status === 'Contacted' 
-                              ? 'bg-emerald-50 text-emerald-800' 
+                              ? 'bg-[#10b981] text-[#ffffff]' 
                               : s.status === 'Archived'
-                                ? 'bg-[#eae6db]/50 text-[#6e6e73]'
-                                : 'bg-[#fbf7ee] text-[#a6813b]'
+                                ? 'bg-[#8c7e6b] text-[#ffffff]'
+                                : 'bg-[#c5a059] text-[#ffffff]'
                           }`}>
                             {s.status || 'Pending'}
                           </span>

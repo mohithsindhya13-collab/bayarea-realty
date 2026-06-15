@@ -312,25 +312,30 @@ export default function Home() {
                     <>
                       <button
                         onClick={(e) => handlePrevImage(prop.id, imagesList.length, e)}
-                        className="absolute left-3 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-8 h-8 rounded-full bg-slate-950/70 backdrop-blur-sm border border-white/10 text-slate-300 hover:text-white hover:bg-slate-950/90 transition-all opacity-0 group-hover:opacity-100"
+                        className="absolute left-3 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-8 h-8 rounded-full border border-white/10 text-[#d1d5db] hover:text-[#ffffff] bg-[#111827]/70 hover:bg-[#111827]/90 transition-all opacity-0 group-hover:opacity-100"
+                        style={{ backdropFilter: 'blur(4px)', WebkitBackdropFilter: 'blur(4px)' }}
                         title="Previous Image"
                       >
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6" /></svg>
                       </button>
                       <button
                         onClick={(e) => handleNextImage(prop.id, imagesList.length, e)}
-                        className="absolute right-3 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-8 h-8 rounded-full bg-slate-950/70 backdrop-blur-sm border border-white/10 text-slate-300 hover:text-white hover:bg-slate-950/90 transition-all opacity-0 group-hover:opacity-100"
+                        className="absolute right-3 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-8 h-8 rounded-full border border-white/10 text-[#d1d5db] hover:text-[#ffffff] bg-[#111827]/70 hover:bg-[#111827]/90 transition-all opacity-0 group-hover:opacity-100"
+                        style={{ backdropFilter: 'blur(4px)', WebkitBackdropFilter: 'blur(4px)' }}
                         title="Next Image"
                       >
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="9 18 15 12 9 6" /></svg>
                       </button>
 
                       {/* Image dots indicator */}
-                      <div className="absolute bottom-4 right-4 z-10 flex gap-1 bg-slate-950/60 backdrop-blur-sm px-2 py-1 rounded-full border border-white/5">
+                      <div 
+                        className="absolute bottom-4 right-4 z-10 flex gap-1 bg-[#111827]/60 px-2 py-1 rounded-full border border-white/5"
+                        style={{ backdropFilter: 'blur(4px)', WebkitBackdropFilter: 'blur(4px)' }}
+                      >
                         {imagesList.map((_, i) => (
                           <div
                             key={i}
-                            className={`w-1.5 h-1.5 rounded-full transition-all ${i === activeIdx ? 'bg-[#d4af37] w-3' : 'bg-slate-500'}`}
+                            className={`w-1.5 h-1.5 rounded-full transition-all ${i === activeIdx ? 'bg-[#991b1b] w-3' : 'bg-slate-400'}`}
                           />
                         ))}
                       </div>
@@ -342,7 +347,10 @@ export default function Home() {
                     {prop.ev_charging && <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-sm badge-ev">EV Ready</span>}
                     <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-sm badge-schools">{prop.school_rating}/10 Schools</span>
                   </div>
-                  <div className="absolute bottom-4 left-4 bg-slate-950/85 backdrop-blur-md border border-white/10 rounded-lg px-3 py-1.5 text-lg font-bold text-slate-100 shadow-lg z-10">
+                  <div 
+                    className="absolute bottom-4 left-4 border border-white/10 rounded-lg px-3 py-1.5 text-lg font-bold text-[#ffffff] shadow-lg z-10"
+                    style={{ backgroundColor: 'rgba(15, 23, 42, 0.85)', backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)' }}
+                  >
                     {prop.status === 'Rent' ? `$${prop.price.toLocaleString()}/mo` : `$${prop.price.toLocaleString()}`}
                   </div>
                 </div>
