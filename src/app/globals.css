@@ -184,7 +184,11 @@ table {
 
 .text-slate-400,
 .text-slate-500 {
-  color: #6b7280 !important;
+  color: #374151 !important; /* High contrast Apple-like secondary text */
+}
+
+.text-slate-600 {
+  color: #1f2937 !important; /* High contrast body text */
 }
 
 .border-white\/5,
@@ -284,4 +288,16 @@ input.border-none, textarea.border-none {
 }
 input.p-0, textarea.p-0 {
   padding: 0 !important;
+}
+
+/* Tighten input wrapper containers and Select triggers to Apple style */
+div.bg-white\/5.border-white\/10 {
+  padding-top: 8px !important;
+  padding-bottom: 8px !important;
+  padding-left: 14px !important;
+  padding-right: 14px !important;
+}
+
+button.bg-white\/5.border-white\/10 {
+  height: 38px !important;
 }

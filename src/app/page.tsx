@@ -231,7 +231,7 @@ export default function Home() {
       />
 
       {/* Hero section */}
-      <section className="relative min-h-[90vh] flex items-center pt-24 pb-12 overflow-hidden bg-cover bg-center hero-section-bg">
+      <section className="relative min-h-[80vh] flex items-center pt-20 pb-10 overflow-hidden bg-cover bg-center hero-section-bg">
         <div className="max-w-[1280px] mx-auto px-6 w-full relative z-10 flex flex-col justify-center">
           <div className="max-w-[800px]">
             <h1 className="reveal-1 text-5xl md:text-7xl font-bold tracking-tight text-[#7f1d1d] mb-6 leading-tight">
@@ -261,13 +261,13 @@ export default function Home() {
       </section>
 
       {/* Search & Filter cards */}
-      <section className="relative z-20 max-w-[1280px] mx-auto px-6 -mt-16 mb-20">
+      <section className="relative z-20 max-w-[1280px] mx-auto px-6 -mt-12 mb-12">
         <SearchFilters filters={filters} onChange={setFilters} />
       </section>
 
       {/* Listing directory grid */}
-      <section id="properties-section" className="py-12 max-w-[1280px] mx-auto px-6">
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-10 pb-6 border-b border-white/5">
+      <section id="properties-section" className="py-8 max-w-[1280px] mx-auto px-6">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6 pb-4 border-b border-white/5">
           <div className="text-slate-300 text-sm font-medium">
             {!isLoaded ? 'Loading listings...' : `Showing ${filteredProperties.length} property listings`}
           </div>
@@ -290,7 +290,7 @@ export default function Home() {
         </div>
 
         {/* Listings Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredProperties.map((prop) => {
             const activeIdx = cardImageIndices[prop.id] || 0;
             const imagesList = prop.images && prop.images.length > 0 ? prop.images : [prop.image];
@@ -348,20 +348,20 @@ export default function Home() {
                 </div>
 
                 {/* Card Content body */}
-                <div className="p-6 flex-1 flex flex-col">
+                <div className="p-5 flex-1 flex flex-col">
                   <h3 className="text-lg font-semibold text-slate-100 mb-1 group-hover:text-[#d4af37] transition-colors line-clamp-1">{prop.title}</h3>
-                  <div className="text-slate-400 text-xs flex items-center gap-1 mb-5">
+                  <div className="text-slate-400 text-xs flex items-center gap-1 mb-3">
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z" /><circle cx="12" cy="10" r="3" /></svg>
                     {prop.neighborhood}, San Jose
                   </div>
 
-                  <div className="flex gap-6 pb-4 border-b border-white/5 mb-5 text-sm text-slate-300">
+                  <div className="flex gap-4 pb-3 border-b border-white/5 mb-4 text-xs text-slate-300">
                     <div><strong>{prop.beds}</strong> Bed</div>
                     <div><strong>{prop.baths}</strong> Bath</div>
                     <div><strong>{prop.sqft.toLocaleString()}</strong> Sq Ft</div>
                   </div>
 
-                  <div className="flex flex-col gap-2 text-xs text-slate-400 mb-6">
+                  <div className="flex flex-col gap-1.5 text-xs text-slate-400 mb-5">
                     <div className="flex items-center gap-2">
                       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-[#d4af37]"><polyline points="20 6 9 17 4 12" /></svg>
                       <span>District: {prop.school_details.split(' (')[0]}</span>
@@ -372,16 +372,16 @@ export default function Home() {
                     </div>
                   </div>
 
-                  <div className="flex justify-between items-center mt-auto">
+                  <div className="flex justify-between items-center mt-auto gap-2">
                     <button
                       onClick={(e) => { e.stopPropagation(); setSelectedProperty(prop); setActiveImageIdx(activeIdx); }}
-                      className="text-xs font-semibold text-slate-300 border border-white/10 hover:border-[#d4af37] hover:text-[#d4af37] transition-all px-4 py-2 rounded-lg"
+                      className="flex items-center justify-center text-xs font-semibold text-slate-300 border border-white/10 hover:border-[#d4af37] hover:text-[#d4af37] transition-all px-3 h-8 rounded-lg"
                     >
                       Explore details
                     </button>
                     <button
                       onClick={(e) => { e.stopPropagation(); handleEstimateClick(prop.price, prop.status); }}
-                      className="text-xs font-semibold text-slate-950 bg-[#d4af37] hover:bg-[#f3cf65] transition-all px-4 py-2 rounded-lg"
+                      className="flex items-center justify-center text-xs font-semibold text-slate-950 bg-[#d4af37] hover:bg-[#f3cf65] transition-all px-3 h-8 rounded-lg"
                     >
                       Estimate cost
                     </button>

@@ -32,8 +32,8 @@ export function SearchFilters({ filters, onChange }: SearchFiltersProps) {
   };
 
   return (
-    <div className="w-full bg-slate-900/75 backdrop-blur-md border border-white/5 shadow-2xl rounded-2xl p-8">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+    <div className="w-full bg-slate-900/75 backdrop-blur-md border border-white/5 shadow-2xl rounded-2xl p-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
         
         {/* Neighborhood */}
         <div className="flex flex-col gap-2">
@@ -123,14 +123,14 @@ export function SearchFilters({ filters, onChange }: SearchFiltersProps) {
       {/* Advanced Filters Toggle */}
       <button
         onClick={() => setShowAdvanced(!showAdvanced)}
-        className="mt-6 text-[#d4af37] text-xs font-semibold uppercase tracking-wider hover:underline flex items-center gap-1"
+        className="mt-4 text-[#d4af37] text-xs font-semibold uppercase tracking-wider hover:underline flex items-center gap-1"
       >
         {showAdvanced ? 'Hide Advanced Filters (- Options)' : 'Advanced Bay Area Filters (+ Options)'}
       </button>
 
       {/* Advanced Panel */}
       {showAdvanced && (
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-6 pt-6 border-t border-white/5 animate-fadeIn">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-4 pt-4 border-t border-white/5 animate-fadeIn">
           
           {/* Min School Rating */}
           <div className="flex flex-col gap-2">
@@ -194,7 +194,7 @@ export function SearchFilters({ filters, onChange }: SearchFiltersProps) {
       )}
 
       {/* Feature Checkboxes */}
-      <div className="flex flex-wrap gap-6 mt-6 pt-6 border-t border-white/5">
+      <div className="flex flex-wrap gap-4 mt-4 pt-4 border-t border-white/5">
         <div className="flex items-center gap-2">
           <Checkbox
             id="solar"

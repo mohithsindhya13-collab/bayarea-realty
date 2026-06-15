@@ -19,7 +19,7 @@ export function Header({ onAdminClick, onSellClick, isAdminLoggedIn }: HeaderPro
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 h-20 bg-slate-950/75 backdrop-blur-md border-b border-white/5 transition-all">
+    <header className="fixed top-0 left-0 right-0 z-50 h-16 bg-slate-950/75 backdrop-blur-md border-b border-white/5 transition-all">
       <div className="max-width-1280 mx-auto px-6 h-full flex items-center justify-between">
         <a href="#" className="flex items-center gap-2 text-xl font-bold tracking-wider text-slate-900">
           <div className="w-8 h-8 rounded-full border-2 border-[#991b1b] flex items-center justify-center text-xs font-black text-[#991b1b]">

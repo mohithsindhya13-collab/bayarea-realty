@@ -94,19 +94,19 @@ export function MortgageCalculator({ initialPrice = 1500000 }: MortgageCalculato
   };
 
   return (
-    <section id="calculator-section" className="py-24 bg-slate-900 border-t border-white/5">
+    <section id="calculator-section" className="py-16 bg-slate-900 border-t border-white/5">
       <div className="max-w-[1280px] mx-auto px-6">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10">
           <h2 className="text-4xl font-serif text-white mb-3">San Jose Affordability Calculator</h2>
           <p className="text-slate-400 text-sm max-w-[600px] mx-auto">
             Estimate monthly expenses using current Bay Area tax guidelines and prevailing interest rates.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
           
           {/* Inputs */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             
             <div className="col-span-1 sm:col-span-2 flex flex-col gap-3">
               <div className="flex justify-between text-sm">
