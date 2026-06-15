@@ -33,33 +33,52 @@ export function useRealEstateState() {
           ev_charging: false,
           turnkey: true,
           image: "https://search.mlslistings.com/MediaServer/GetMedia.ashx?Key=3014871579&TableID=9&Type=1&Number=0&Size=2&exk=3b10f352ca2b5fdb29fcf6f07d295747",
-          images: ["https://search.mlslistings.com/MediaServer/GetMedia.ashx?Key=3014871579&TableID=9&Type=1&Number=0&Size=2&exk=3b10f352ca2b5fdb29fcf6f07d295747"],
+          images: [
+            "https://search.mlslistings.com/MediaServer/GetMedia.ashx?Key=3014871579&TableID=9&Type=1&Number=0&Size=2&exk=3b10f352ca2b5fdb29fcf6f07d295747",
+            "https://search.mlslistings.com/MediaServer/GetMedia.ashx?Key=3014871579&TableID=9&Type=1&Number=1&Size=2&exk=3b10f352ca2b5fdb29fcf6f07d295747",
+            "https://search.mlslistings.com/MediaServer/GetMedia.ashx?Key=3014871579&TableID=9&Type=1&Number=2&Size=2&exk=3b10f352ca2b5fdb29fcf6f07d295747",
+            "https://search.mlslistings.com/MediaServer/GetMedia.ashx?Key=3014871579&TableID=9&Type=1&Number=3&Size=2&exk=3b10f352ca2b5fdb29fcf6f07d295747",
+            "https://search.mlslistings.com/MediaServer/GetMedia.ashx?Key=3014871579&TableID=9&Type=1&Number=4&Size=2&exk=3b10f352ca2b5fdb29fcf6f07d295747",
+            "https://search.mlslistings.com/MediaServer/GetMedia.ashx?Key=3014871579&TableID=9&Type=1&Number=5&Size=2&exk=3b10f352ca2b5fdb29fcf6f07d295747"
+          ],
           description: "Stunning 1993-built home in the top-rated Union School District where over $120K in recent upgrades has transformed it into a modern masterpiece. The bright and open floor plan boasts high ceilings, premium flooring, custom lighting, and gourmet chef's kitchen. Located on a quiet cul-de-sac with beautiful curb appeal, private backyard, and easy access to top parks, dining, and Silicon Valley commuter routes."
         };
 
-        const marbellaIndex = parsed.findIndex(p => 
+        // Filter duplicates: Keep only the first listing that contains the word "Marbella"
+        let marbellaFound = false;
+        let merged = parsed.filter(p => {
+          const isMarbella = 
+            (p.title && p.title.toLowerCase().includes('marbella')) || 
+            (p.description && p.description.toLowerCase().includes('marbella')) ||
+            (p.school_details && p.school_details.toLowerCase().includes('marbella'));
+          
+          if (isMarbella) {
+            if (!marbellaFound) {
+              marbellaFound = true;
+              return true;
+            }
+            return false;
+          }
+          return true;
+        });
+
+        const marbellaIndex = merged.findIndex(p => 
           (p.title && p.title.toLowerCase().includes('marbella')) || 
           (p.description && p.description.toLowerCase().includes('marbella')) ||
           (p.school_details && p.school_details.toLowerCase().includes('marbella'))
         );
 
-        let merged = [...parsed];
         if (marbellaIndex !== -1) {
           merged[marbellaIndex] = {
             ...merged[marbellaIndex],
             ...marbellaData
           };
         } else {
-          const hasId8 = merged.some(p => p.id === 8);
-          if (!hasId8) {
-            merged.push({
-              ...marbellaData,
-              id: 8,
-              days_on_market: 1
-            });
-          } else {
-            merged = merged.map(p => p.id === 8 ? { ...p, ...marbellaData } : p);
-          }
+          merged.push({
+            ...marbellaData,
+            id: 8,
+            days_on_market: 1
+          });
         }
 
         const updated = merged.map(p => {
@@ -98,7 +117,14 @@ export function useRealEstateState() {
             turnkey: true,
             days_on_market: 1,
             image: "https://search.mlslistings.com/MediaServer/GetMedia.ashx?Key=3014871579&TableID=9&Type=1&Number=0&Size=2&exk=3b10f352ca2b5fdb29fcf6f07d295747",
-            images: ["https://search.mlslistings.com/MediaServer/GetMedia.ashx?Key=3014871579&TableID=9&Type=1&Number=0&Size=2&exk=3b10f352ca2b5fdb29fcf6f07d295747"],
+            images: [
+              "https://search.mlslistings.com/MediaServer/GetMedia.ashx?Key=3014871579&TableID=9&Type=1&Number=0&Size=2&exk=3b10f352ca2b5fdb29fcf6f07d295747",
+              "https://search.mlslistings.com/MediaServer/GetMedia.ashx?Key=3014871579&TableID=9&Type=1&Number=1&Size=2&exk=3b10f352ca2b5fdb29fcf6f07d295747",
+              "https://search.mlslistings.com/MediaServer/GetMedia.ashx?Key=3014871579&TableID=9&Type=1&Number=2&Size=2&exk=3b10f352ca2b5fdb29fcf6f07d295747",
+              "https://search.mlslistings.com/MediaServer/GetMedia.ashx?Key=3014871579&TableID=9&Type=1&Number=3&Size=2&exk=3b10f352ca2b5fdb29fcf6f07d295747",
+              "https://search.mlslistings.com/MediaServer/GetMedia.ashx?Key=3014871579&TableID=9&Type=1&Number=4&Size=2&exk=3b10f352ca2b5fdb29fcf6f07d295747",
+              "https://search.mlslistings.com/MediaServer/GetMedia.ashx?Key=3014871579&TableID=9&Type=1&Number=5&Size=2&exk=3b10f352ca2b5fdb29fcf6f07d295747"
+            ],
             description: "Stunning 1993-built home in the top-rated Union School District where over $120K in recent upgrades has transformed it into a modern masterpiece. The bright and open floor plan boasts high ceilings, premium flooring, custom lighting, and gourmet chef's kitchen. Located on a quiet cul-de-sac with beautiful curb appeal, private backyard, and easy access to top parks, dining, and Silicon Valley commuter routes."
           }
         ];
