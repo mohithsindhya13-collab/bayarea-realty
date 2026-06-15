@@ -232,23 +232,23 @@ export default function Home() {
 
       {/* Hero section */}
       <section className="relative min-h-[90vh] flex items-center pt-24 pb-12 overflow-hidden bg-cover bg-center hero-section-bg">
-        <div className="max-w-[1280px] mx-auto px-6 w-full relative z-10 flex flex-col justify-center animate-fadeIn">
+        <div className="max-w-[1280px] mx-auto px-6 w-full relative z-10 flex flex-col justify-center">
           <div className="max-w-[800px]">
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-[#7f1d1d] mb-6 leading-tight">
+            <h1 className="reveal-1 text-5xl md:text-7xl font-bold tracking-tight text-[#7f1d1d] mb-6 leading-tight">
               Find Your <span className="text-[#991b1b]">Silicon Valley</span><br />
               <span className="font-serif font-normal italic text-slate-800">Dream Home</span>
             </h1>
-            <p className="text-slate-600 text-lg md:text-xl font-medium mb-12 max-w-[620px] leading-relaxed">
+            <p className="reveal-2 text-slate-600 text-lg md:text-xl font-medium mb-12 max-w-[620px] leading-relaxed">
               Tailored real estate services for the California Bay Area. View premium listings aligned with elite school districts and proximity to major tech campuses.
             </p>
 
-            <div className="flex flex-wrap gap-12 mt-4">
+            <div className="reveal-3 flex flex-wrap gap-12 mt-4">
               <div className="flex flex-col">
                 <span className="text-4xl font-bold text-[#d4af37] tracking-tight">$1.5M</span>
                 <span className="text-xs uppercase tracking-widest text-slate-500 font-semibold mt-1">Median Price</span>
               </div>
               <div className="flex flex-col">
-                <span className="text-4xl font-bold text-[#d4af37] tracking-tight">21 Days</span>
+                <span className="text-4xl font-bold text-[#d4af37] tracking-tight">13 Days</span>
                 <span className="text-xs uppercase tracking-widest text-slate-500 font-semibold mt-1">Avg. on Market</span>
               </div>
               <div className="flex flex-col">
