@@ -22,6 +22,12 @@ export function Footer({ onLocationClick, onStatusClick, onValuationClick }: Foo
           <p className="text-slate-400 text-sm max-w-[320px]">
             Premium real estate advisory group serving San Jose, Cupertino, Santa Clara, and the broader California Bay Area.
           </p>
+          <div className="flex flex-col gap-1 mt-2 text-xs text-slate-500">
+            <span className="uppercase tracking-widest font-semibold text-[10px] text-slate-400">Reach Out to Buy</span>
+            <a href="mailto:prachetakikkeri4@gmail.com" className="text-[#d4af37] hover:underline font-bold text-sm">
+              prachetakikkeri4@gmail.com
+            </a>
+          </div>
         </div>
 
         <div className="flex flex-col gap-5">
@@ -82,7 +88,12 @@ export function Footer({ onLocationClick, onStatusClick, onValuationClick }: Foo
             <li>Mohith Sindhia</li>
             <li>Shyam</li>
             <li>Aryan</li>
-            <li>Pracheta (Lead Agent)</li>
+            <li className="flex flex-col">
+              <span>Pracheta (Lead Agent)</span>
+              <a href="mailto:prachetakikkeri4@gmail.com" className="text-xs text-[#d4af37] hover:underline mt-1">
+                prachetakikkeri4@gmail.com
+              </a>
+            </li>
           </ul>
         </div>
       </div>
