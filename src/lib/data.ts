@@ -147,27 +147,6 @@ export const defaultProperties: Property[] = [
     days_on_market: 14,
     image: "/assets/images/downtown_penthouse.png",
     description: "Live above it all in this spectacular luxury penthouse in Downtown San Jose. Features floor-to-ceiling windows with twilight views of the skyline and surrounding mountains. Walking distance to Adobe headquarters, Zoom, and the planned Google Diridon campus. Modern designer furniture, LEED certified building amenities, EV-capable parking space, and 24-hour concierge services."
-  },
-  {
-    id: 8,
-    title: "Stunning Cambrian Upgraded Family Home",
-    neighborhood: "Cambrian / San Jose",
-    price: 2399000,
-    beds: 4,
-    baths: 3,
-    sqft: 1671,
-    type: "House",
-    status: "Buy",
-    school_rating: 9,
-    school_details: "Union School District: Carlton Elementary, Union Middle, Leigh High (9/10)",
-    commute_times: { apple: 18, google: 22, nvidia: 20, adobe: 12 },
-    solar: false,
-    ev_charging: false,
-    turnkey: true,
-    days_on_market: 1,
-    image: "https://search.mlslistings.com/MediaServer/GetMedia.ashx?Key=3014871579&TableID=9&Type=1&Number=0&Size=2&exk=3b10f352ca2b5fdb29fcf6f07d295747",
-    images: ["https://search.mlslistings.com/MediaServer/GetMedia.ashx?Key=3014871579&TableID=9&Type=1&Number=0&Size=2&exk=3b10f352ca2b5fdb29fcf6f07d295747"],
-    description: "Stunning 1993-built home in the top-rated Union School District where over $120K in recent upgrades has transformed it into a modern masterpiece. The bright and open floor plan boasts high ceilings, premium flooring, custom lighting, and gourmet chef's kitchen. Located on a quiet cul-de-sac with beautiful curb appeal, private backyard, and easy access to top parks, dining, and Silicon Valley commuter routes."
   }
 ];
 

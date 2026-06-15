@@ -17,24 +17,93 @@ export function useRealEstateState() {
 
       if (storedProps) {
         const parsed = JSON.parse(storedProps) as Property[];
-        const updated = parsed.map(p => {
+        const marbellaData: Omit<Property, 'id' | 'days_on_market'> = {
+          title: "Stunning Cambrian Upgraded Family Home",
+          neighborhood: "Cambrian",
+          price: 2399000,
+          beds: 4,
+          baths: 3,
+          sqft: 1671,
+          type: "House",
+          status: "Buy",
+          school_rating: 9,
+          school_details: "Union School District: Carlton Elementary, Union Middle, Leigh High (9/10)",
+          commute_times: { apple: 18, google: 22, nvidia: 20, adobe: 12 },
+          solar: false,
+          ev_charging: false,
+          turnkey: true,
+          image: "https://search.mlslistings.com/MediaServer/GetMedia.ashx?Key=3014871579&TableID=9&Type=1&Number=0&Size=2&exk=3b10f352ca2b5fdb29fcf6f07d295747",
+          images: ["https://search.mlslistings.com/MediaServer/GetMedia.ashx?Key=3014871579&TableID=9&Type=1&Number=0&Size=2&exk=3b10f352ca2b5fdb29fcf6f07d295747"],
+          description: "Stunning 1993-built home in the top-rated Union School District where over $120K in recent upgrades has transformed it into a modern masterpiece. The bright and open floor plan boasts high ceilings, premium flooring, custom lighting, and gourmet chef's kitchen. Located on a quiet cul-de-sac with beautiful curb appeal, private backyard, and easy access to top parks, dining, and Silicon Valley commuter routes."
+        };
+
+        const marbellaIndex = parsed.findIndex(p => 
+          (p.title && p.title.toLowerCase().includes('marbella')) || 
+          (p.description && p.description.toLowerCase().includes('marbella')) ||
+          (p.school_details && p.school_details.toLowerCase().includes('marbella'))
+        );
+
+        let merged = [...parsed];
+        if (marbellaIndex !== -1) {
+          merged[marbellaIndex] = {
+            ...merged[marbellaIndex],
+            ...marbellaData
+          };
+        } else {
+          const hasId8 = merged.some(p => p.id === 8);
+          if (!hasId8) {
+            merged.push({
+              ...marbellaData,
+              id: 8,
+              days_on_market: 1
+            });
+          } else {
+            merged = merged.map(p => p.id === 8 ? { ...p, ...marbellaData } : p);
+          }
+        }
+
+        const updated = merged.map(p => {
           const defaultMatch = defaultProperties.find(dp => dp.id === p.id);
           return defaultMatch ? defaultMatch : p;
         });
         const missing = defaultProperties.filter(
           dp => !updated.some(p => p.id === dp.id)
         );
-        const merged = [...updated, ...missing];
+        const finalMerged = [...updated, ...missing];
 
-        if (JSON.stringify(parsed) !== JSON.stringify(merged)) {
-          setProperties(merged);
-          localStorage.setItem('valley_properties', JSON.stringify(merged));
+        if (JSON.stringify(parsed) !== JSON.stringify(finalMerged)) {
+          setProperties(finalMerged);
+          localStorage.setItem('valley_properties', JSON.stringify(finalMerged));
         } else {
           setProperties(parsed);
         }
       } else {
-        setProperties(defaultProperties);
-        localStorage.setItem('valley_properties', JSON.stringify(defaultProperties));
+        const initialProperties: Property[] = [
+          ...defaultProperties,
+          {
+            id: 8,
+            title: "Stunning Cambrian Upgraded Family Home",
+            neighborhood: "Cambrian",
+            price: 2399000,
+            beds: 4,
+            baths: 3,
+            sqft: 1671,
+            type: "House",
+            status: "Buy",
+            school_rating: 9,
+            school_details: "Union School District: Carlton Elementary, Union Middle, Leigh High (9/10)",
+            commute_times: { apple: 18, google: 22, nvidia: 20, adobe: 12 },
+            solar: false,
+            ev_charging: false,
+            turnkey: true,
+            days_on_market: 1,
+            image: "https://search.mlslistings.com/MediaServer/GetMedia.ashx?Key=3014871579&TableID=9&Type=1&Number=0&Size=2&exk=3b10f352ca2b5fdb29fcf6f07d295747",
+            images: ["https://search.mlslistings.com/MediaServer/GetMedia.ashx?Key=3014871579&TableID=9&Type=1&Number=0&Size=2&exk=3b10f352ca2b5fdb29fcf6f07d295747"],
+            description: "Stunning 1993-built home in the top-rated Union School District where over $120K in recent upgrades has transformed it into a modern masterpiece. The bright and open floor plan boasts high ceilings, premium flooring, custom lighting, and gourmet chef's kitchen. Located on a quiet cul-de-sac with beautiful curb appeal, private backyard, and easy access to top parks, dining, and Silicon Valley commuter routes."
+          }
+        ];
+        setProperties(initialProperties);
+        localStorage.setItem('valley_properties', JSON.stringify(initialProperties));
       }
 
       if (storedTours) {
