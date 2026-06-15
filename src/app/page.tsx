@@ -428,12 +428,11 @@ export default function Home() {
 
       {/* DIALOGS */}
 
-      {/* Property Details Dialog Modal */}
       <Dialog open={!!selectedProperty} onOpenChange={(open) => !open && setSelectedProperty(null)}>
         {selectedProperty && (
-          <DialogContent className="bg-slate-900 border-white/10 text-slate-100 sm:max-w-[850px] max-h-[90vh] overflow-y-auto">
+          <DialogContent className="bg-[#faf9f6] border-[#e6e1d5] text-[#1f2937] sm:max-w-[850px] max-h-[90vh] overflow-y-auto">
             <DialogHeader className="flex justify-between items-start">
-              <DialogTitle className="font-serif text-2xl text-slate-100">{selectedProperty.title}</DialogTitle>
+              <DialogTitle className="font-bold tracking-tight text-2xl text-[#7f1d1d]">{selectedProperty.title}</DialogTitle>
             </DialogHeader>
 
             <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mt-4">
@@ -574,11 +573,10 @@ export default function Home() {
         )}
       </Dialog>
 
-      {/* Listing Form Dialog Modal (Sellers listing their properties) */}
       <Dialog open={isSellOpen} onOpenChange={setIsSellOpen}>
-        <DialogContent className="bg-slate-900 border-white/10 text-slate-100 sm:max-w-[700px] max-h-[85vh] overflow-y-auto">
+        <DialogContent className="bg-[#faf9f6] border-[#e6e1d5] text-[#1f2937] sm:max-w-[700px] max-h-[85vh] overflow-y-auto">
           <DialogHeader>
-            <DialogTitle className="font-serif text-lg text-slate-200">List Your Bay Area Property</DialogTitle>
+            <DialogTitle className="font-bold tracking-tight text-lg text-[#7f1d1d]">List Your Bay Area Property</DialogTitle>
           </DialogHeader>
           <form onSubmit={handleSellSubmit} className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-4">
 

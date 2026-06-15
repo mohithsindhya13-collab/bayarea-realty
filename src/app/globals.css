@@ -366,3 +366,9 @@ select.bg-white\/5.border-white\/10:focus {
   background-color: rgba(31, 41, 55, 0.85) !important;
   color: #ffffff !important;
 }
+
+/* Active tab count badge style */
+[data-state="active"] span.rounded-full {
+  background-color: #991b1b !important;
+  color: #ffffff !important;
+}

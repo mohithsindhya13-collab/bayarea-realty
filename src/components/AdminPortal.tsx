@@ -314,8 +314,8 @@ export function AdminPortal({
       
       {/* Login lock screen */}
       {!loggedInAgent ? (
-        <div className="w-full max-w-[450px] bg-slate-900 border border-white/5 shadow-2xl rounded-2xl p-10 relative animate-slideUp">
-          <h3 className="text-xl font-serif text-slate-100 text-center mb-6">Valley & Co. Portal Login</h3>
+        <div className="w-full max-w-[450px] bg-[#faf9f6] border border-[#e6e1d5] shadow-2xl rounded-2xl p-10 relative animate-slideUp text-[#1f2937]">
+          <h3 className="text-xl font-bold tracking-tight text-[#7f1d1d] text-center mb-6">Valley & Co. Portal Login</h3>
           
           {!selectedAgent ? (
             <div className="grid grid-cols-2 gap-4">
@@ -323,29 +323,29 @@ export function AdminPortal({
                 <button
                   key={agent.id}
                   onClick={() => handleAgentClick(agent)}
-                  className="flex flex-col items-center gap-3 p-5 rounded-xl border border-white/5 bg-white/2 hover:bg-[#d4af37]/5 hover:border-[#d4af37] transition-all"
+                  className="flex flex-col items-center gap-3 p-5 rounded-xl border border-[#e6e1d5] bg-white hover:bg-[#991b1b]/5 hover:border-[#991b1b] transition-all group"
                 >
-                  <div className="w-12 h-12 rounded-full bg-[#d4af37] text-slate-950 font-bold flex items-center justify-center text-lg">
+                  <div className="w-12 h-12 rounded-full bg-[#991b1b] text-white font-bold flex items-center justify-center text-lg shadow-inner group-hover:scale-105 transition-all">
                     {agent.initial}
                   </div>
-                  <span className="text-sm font-semibold text-slate-200">{agent.name}</span>
+                  <span className="text-sm font-semibold text-[#111827]">{agent.name}</span>
                 </button>
               ))}
             </div>
           ) : (
             <form onSubmit={handleLoginSubmit} className="flex flex-col gap-4">
-              <div className="flex items-center gap-3 pb-4 border-b border-white/5 mb-2">
-                <div className="w-10 h-10 rounded-full bg-[#d4af37] text-slate-950 font-bold flex items-center justify-center">
+              <div className="flex items-center gap-3 pb-4 border-b border-[#e6e1d5] mb-2">
+                <div className="w-10 h-10 rounded-full bg-[#991b1b] text-white font-bold flex items-center justify-center">
                   {selectedAgent.initial}
                 </div>
                 <div>
-                  <h4 className="text-sm font-semibold text-slate-200">{selectedAgent.name}</h4>
-                  <p className="text-xs text-slate-400">{selectedAgent.role}</p>
+                  <h4 className="text-sm font-semibold text-[#111827]">{selectedAgent.name}</h4>
+                  <p className="text-xs text-[#4b5563]">{selectedAgent.role}</p>
                 </div>
               </div>
 
               <div className="flex flex-col gap-1.5">
-                <Label htmlFor="pass" className="text-xs text-slate-400 font-medium">Authorization Password</Label>
+                <Label htmlFor="pass" className="text-xs text-[#4b5563] font-medium">Authorization Password</Label>
                 <div className="relative bg-white/5 border border-white/10 rounded-xl px-4 py-3">
                   <Input
                     type="password"
@@ -361,34 +361,34 @@ export function AdminPortal({
               </div>
 
               <div className="flex gap-4 mt-2">
-                <Button type="button" onClick={() => setSelectedAgent(null)} className="flex-1 bg-transparent border border-white/10 text-slate-200 hover:bg-white/5 h-11">
+                <Button type="button" onClick={() => setSelectedAgent(null)} className="flex-1 bg-transparent border border-[#e6e1d5] text-[#374151] hover:bg-[#eae6db] h-11">
                   Back
                 </Button>
-                <Button type="submit" className="flex-1 bg-[#d4af37] text-slate-950 hover:bg-[#f3cf65] font-semibold h-11">
+                <Button type="submit" className="flex-1 bg-[#991b1b] text-white hover:bg-[#7f1d1d] font-semibold h-11">
                   Authorize
                 </Button>
               </div>
             </form>
           )}
 
-          <button onClick={onClose} className="absolute top-4 right-4 text-2xl text-slate-400 hover:text-slate-200">&times;</button>
+          <button onClick={onClose} className="absolute top-4 right-4 text-2xl text-[#4b5563] hover:text-[#991b1b]">&times;</button>
         </div>
       ) : (
         
         /* Dashboard view */
-        <div className="w-full max-w-[1100px] h-[85vh] bg-slate-900 border border-white/5 shadow-2xl rounded-2xl flex flex-col overflow-hidden animate-slideUp">
+        <div className="w-full max-w-[1100px] h-[85vh] bg-[#faf9f6] border border-[#e6e1d5] shadow-2xl rounded-2xl flex flex-col overflow-hidden animate-slideUp text-[#1f2937]">
           
           {/* Dashboard Header */}
-          <div className="flex justify-between items-center px-8 py-5 border-b border-white/5 bg-slate-950/40">
+          <div className="flex justify-between items-center px-8 py-5 border-b border-[#e6e1d5] bg-[#f5f2eb]">
             <div>
-              <h2 className="text-xl font-serif text-slate-100">Operations Control Center</h2>
-              <p className="text-xs text-[#d4af37] font-semibold">Authorized Agent: {loggedInAgent.name} ({loggedInAgent.role})</p>
+              <h2 className="text-xl font-bold tracking-tight text-[#7f1d1d]">Operations Control Center</h2>
+              <p className="text-xs text-[#c5a059] font-bold">Authorized Agent: {loggedInAgent.name} ({loggedInAgent.role})</p>
             </div>
             <div className="flex gap-4">
-              <Button onClick={handleLogout} className="bg-transparent border border-white/10 text-slate-200 hover:bg-white/5 text-xs h-9">
+              <Button onClick={handleLogout} className="bg-transparent border border-[#e6e1d5] text-[#374151] hover:bg-[#eae6db] text-xs h-9">
                 Exit Portal
               </Button>
-              <Button onClick={onClose} className="bg-[#d4af37] text-slate-950 hover:bg-[#f3cf65] text-xs h-9 font-semibold">
+              <Button onClick={onClose} className="bg-[#991b1b] text-white hover:bg-[#7f1d1d] text-xs h-9 font-semibold">
                 Close
               </Button>
             </div>
@@ -399,68 +399,68 @@ export function AdminPortal({
             <Tabs defaultValue="listings" orientation="vertical" className="w-full h-full flex flex-col md:flex-row">
               
               {/* Tab Navigation Sidebar */}
-              <TabsList className="flex flex-col h-auto bg-slate-950/20 border-r border-white/5 justify-start p-4 w-full md:w-[220px] rounded-none gap-2">
-                <TabsTrigger value="listings" className="w-full justify-between px-4 py-3 rounded-lg text-slate-400 data-[state=active]:bg-[#d4af37]/10 data-[state=active]:text-[#d4af37] border border-transparent data-[state=active]:border-[#d4af37]/20">
+              <TabsList className="flex flex-col h-auto bg-[#eae6db]/40 border-r border-[#e6e1d5] justify-start p-4 w-full md:w-[220px] rounded-none gap-2">
+                <TabsTrigger value="listings" className="w-full justify-between px-4 py-3 rounded-lg text-[#4b5563] hover:text-[#991b1b] data-[state=active]:bg-[#991b1b]/10 data-[state=active]:text-[#991b1b] border border-transparent data-[state=active]:border-[#991b1b]/20 transition-all font-medium">
                   <span>Listing Manager</span>
-                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-slate-800 text-slate-400 font-bold">{properties.length}</span>
+                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#eae6db] text-[#4b5563] font-bold border border-[#e6e1d5]">{properties.length}</span>
                 </TabsTrigger>
-                <TabsTrigger value="import" className="w-full justify-between px-4 py-3 rounded-lg text-slate-400 data-[state=active]:bg-[#d4af37]/10 data-[state=active]:text-[#d4af37] border border-transparent data-[state=active]:border-[#d4af37]/20">
+                <TabsTrigger value="import" className="w-full justify-between px-4 py-3 rounded-lg text-[#4b5563] hover:text-[#991b1b] data-[state=active]:bg-[#991b1b]/10 data-[state=active]:text-[#991b1b] border border-transparent data-[state=active]:border-[#991b1b]/20 transition-all font-medium">
                   <span>MLS CSV Import</span>
                   <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#991b1b]/10 text-[#991b1b] font-bold">CSV</span>
                 </TabsTrigger>
-                <TabsTrigger value="tours" className="w-full justify-between px-4 py-3 rounded-lg text-slate-400 data-[state=active]:bg-[#d4af37]/10 data-[state=active]:text-[#d4af37] border border-transparent data-[state=active]:border-[#d4af37]/20">
+                <TabsTrigger value="tours" className="w-full justify-between px-4 py-3 rounded-lg text-[#4b5563] hover:text-[#991b1b] data-[state=active]:bg-[#991b1b]/10 data-[state=active]:text-[#991b1b] border border-transparent data-[state=active]:border-[#991b1b]/20 transition-all font-medium">
                   <span>Tour Requests</span>
-                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-slate-800 text-slate-400 font-bold">{tours.length}</span>
+                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#eae6db] text-[#4b5563] font-bold border border-[#e6e1d5]">{tours.length}</span>
                 </TabsTrigger>
-                <TabsTrigger value="sellers" className="w-full justify-between px-4 py-3 rounded-lg text-slate-400 data-[state=active]:bg-[#d4af37]/10 data-[state=active]:text-[#d4af37] border border-transparent data-[state=active]:border-[#d4af37]/20">
+                <TabsTrigger value="sellers" className="w-full justify-between px-4 py-3 rounded-lg text-[#4b5563] hover:text-[#991b1b] data-[state=active]:bg-[#991b1b]/10 data-[state=active]:text-[#991b1b] border border-transparent data-[state=active]:border-[#991b1b]/20 transition-all font-medium">
                   <span>Seller Leads</span>
-                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-slate-800 text-slate-400 font-bold">{sellers.length}</span>
+                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#eae6db] text-[#4b5563] font-bold border border-[#e6e1d5]">{sellers.length}</span>
                 </TabsTrigger>
               </TabsList>
 
               {/* TAB 1: Listing Manager */}
               <TabsContent value="listings" className="flex-1 p-8 overflow-y-auto m-0">
                 <div className="flex justify-between items-center mb-6">
-                  <h3 className="text-lg font-serif text-slate-100">Listing Directory</h3>
-                  <Button onClick={() => setIsAddOpen(true)} className="bg-[#d4af37] text-slate-950 hover:bg-[#f3cf65] font-semibold text-xs h-9">
+                  <h3 className="text-lg font-bold tracking-tight text-[#7f1d1d]">Listing Directory</h3>
+                  <Button onClick={() => setIsAddOpen(true)} className="bg-[#991b1b] text-white hover:bg-[#7f1d1d] font-semibold text-xs h-9">
                     + Add Listing Manually
                   </Button>
                 </div>
 
                 <Table>
                   <TableHeader>
-                    <TableRow className="border-white/5 hover:bg-transparent">
-                      <TableHead className="text-slate-400 text-xs">Property Title</TableHead>
-                      <TableHead className="text-slate-400 text-xs">Neighborhood</TableHead>
-                      <TableHead className="text-slate-400 text-xs">Price</TableHead>
-                      <TableHead className="text-slate-400 text-xs">Status</TableHead>
-                      <TableHead className="text-slate-400 text-xs text-right">Actions</TableHead>
+                    <TableRow className="border-[#e6e1d5] hover:bg-transparent">
+                      <TableHead className="text-[#4b5563] font-semibold text-xs">Property Title</TableHead>
+                      <TableHead className="text-[#4b5563] font-semibold text-xs">Neighborhood</TableHead>
+                      <TableHead className="text-[#4b5563] font-semibold text-xs">Price</TableHead>
+                      <TableHead className="text-[#4b5563] font-semibold text-xs">Status</TableHead>
+                      <TableHead className="text-[#4b5563] font-semibold text-xs text-right">Actions</TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>
                     {properties.map((prop) => (
-                      <TableRow key={prop.id} className="border-white/5 hover:bg-white/2">
-                        <TableCell className="font-semibold text-slate-200">
+                      <TableRow key={prop.id} className="border-[#e6e1d5] hover:bg-[#eae6db]/10">
+                        <TableCell className="font-semibold text-[#111827]">
                           <div className="flex items-center gap-3">
-                            <img src={prop.image} alt="" className="w-10 h-7 rounded object-cover border border-white/10" />
+                            <img src={prop.image} alt="" className="w-10 h-7 rounded object-cover border border-[#e6e1d5]" />
                             <span className="max-w-[250px] truncate">{prop.title}</span>
                           </div>
                         </TableCell>
-                        <TableCell className="text-slate-300">{prop.neighborhood}</TableCell>
-                        <TableCell className="text-slate-300 font-medium">${prop.price.toLocaleString()}</TableCell>
+                        <TableCell className="text-[#374151]">{prop.neighborhood}</TableCell>
+                        <TableCell className="text-[#374151] font-semibold">${prop.price.toLocaleString()}</TableCell>
                         <TableCell>
                           <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-sm ${
-                            prop.status === 'Buy' ? 'bg-[#d4af37]/20 text-[#d4af37]' : 'bg-[#10b981]/20 text-[#10b981]'
+                            prop.status === 'Buy' ? 'bg-[#fee2e2] text-[#991b1b]' : 'bg-emerald-50 text-emerald-800'
                           }`}>
                             {prop.status === 'Buy' ? 'For Sale' : 'For Lease'}
                           </span>
                         </TableCell>
                         <TableCell className="text-right">
                           <div className="flex justify-end gap-2">
-                            <Button onClick={() => handleEditClick(prop)} className="bg-transparent border border-white/10 text-slate-200 hover:bg-white/5 text-[10px] h-7 px-3">
+                            <Button onClick={() => handleEditClick(prop)} className="bg-transparent border border-[#e6e1d5] text-[#374151] hover:bg-[#eae6db] text-[10px] h-7 px-3">
                               Edit
                             </Button>
-                            <Button onClick={() => onDeleteProperty(prop.id)} className="bg-transparent hover:bg-red-500/20 text-red-400 hover:text-red-300 text-[10px] h-7 px-3">
+                            <Button onClick={() => onDeleteProperty(prop.id)} className="bg-transparent hover:bg-red-50 text-red-600 border border-transparent hover:border-red-200 text-[10px] h-7 px-3">
                               Delete
                             </Button>
                           </div>
@@ -473,8 +473,8 @@ export function AdminPortal({
 
               {/* TAB 2: MLS CSV Import */}
               <TabsContent value="import" className="flex-1 p-8 overflow-y-auto m-0 flex flex-col">
-                <h3 className="text-lg font-serif text-slate-100 mb-2">MLS Property Importer</h3>
-                <p className="text-sm text-slate-400 mb-8 max-w-[650px]">
+                <h3 className="text-lg font-bold tracking-tight text-[#7f1d1d] mb-2">MLS Property Importer</h3>
+                <p className="text-sm text-[#4b5563] mb-8 max-w-[650px]">
                   Export listings from your MLSListings agent portal, then drag and drop the CSV file below to instantly bulk-update the catalog.
                 </p>
 
@@ -485,13 +485,13 @@ export function AdminPortal({
                   onClick={() => fileInputRef.current?.click()}
                   className={`flex-1 border-2 border-dashed rounded-2xl flex flex-col items-center justify-center p-12 text-center cursor-pointer transition-all ${
                     isDragOver 
-                      ? 'border-[#d4af37] bg-[#d4af37]/5' 
-                      : 'border-white/10 bg-white/2 hover:border-[#d4af37]/50 hover:bg-white/4'
+                      ? 'border-[#991b1b] bg-[#991b1b]/5' 
+                      : 'border-[#e6e1d5] bg-white hover:border-[#991b1b]/50 hover:bg-[#eae6db]/10'
                   }`}
                 >
-                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-[#d4af37] mb-4"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-                  <h4 className="font-semibold text-slate-200 mb-1">Drag & Drop MLS CSV Here</h4>
-                  <p className="text-xs text-slate-400">or click to browse local files</p>
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-[#991b1b] mb-4"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                  <h4 className="font-semibold text-[#111827] mb-1">Drag & Drop MLS CSV Here</h4>
+                  <p className="text-xs text-[#4b5563]">or click to browse local files</p>
                   <input
                     type="file"
                     ref={fileInputRef}
@@ -501,12 +501,12 @@ export function AdminPortal({
                   />
                 </div>
 
-                <div className="mt-8 bg-white/2 border border-white/5 rounded-xl p-5">
-                  <h4 className="text-xs font-semibold uppercase tracking-wider text-[#d4af37] mb-2">Smart Column Mapping Protocol</h4>
-                  <p className="text-xs text-slate-400 leading-relaxed">
+                <div className="mt-8 bg-white border border-[#e6e1d5] rounded-xl p-5">
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-[#991b1b] mb-2">Smart Column Mapping Protocol</h4>
+                  <p className="text-xs text-[#4b5563] leading-relaxed">
                     Our importer dynamically maps columns. Your CSV should contain columns matching or close to:
                   </p>
-                  <code className="block bg-black/30 p-3 rounded-lg mt-3 text-xs text-[#c5a059] font-mono overflow-x-auto whitespace-nowrap">
+                  <code className="block bg-[#f5f2eb] border border-[#e6e1d5] p-3 rounded-lg mt-3 text-xs text-[#991b1b] font-mono overflow-x-auto whitespace-nowrap">
                     MLS#, Title/Street/Address, Price/ListPrice, Beds/Bedrooms, Baths/Bathrooms, SqFt/SqFtTotal, Remarks/Description, Neighborhood/City
                   </code>
                 </div>
@@ -514,46 +514,46 @@ export function AdminPortal({
 
               {/* TAB 3: Tour Requests */}
               <TabsContent value="tours" className="flex-1 p-8 overflow-y-auto m-0">
-                <h3 className="text-lg font-serif text-slate-100 mb-6">Client viewing request ledger</h3>
+                <h3 className="text-lg font-bold tracking-tight text-[#7f1d1d] mb-6">Client viewing request ledger</h3>
                 <Table>
                   <TableHeader>
-                    <TableRow className="border-white/5 hover:bg-transparent">
-                      <TableHead className="text-slate-400 text-xs">Client</TableHead>
-                      <TableHead className="text-slate-400 text-xs">Property Title</TableHead>
-                      <TableHead className="text-slate-400 text-xs">Schedule Date</TableHead>
-                      <TableHead className="text-slate-400 text-xs">Status</TableHead>
-                      <TableHead className="text-slate-400 text-xs text-right">Actions</TableHead>
+                    <TableRow className="border-[#e6e1d5] hover:bg-transparent">
+                      <TableHead className="text-[#4b5563] font-semibold text-xs">Client</TableHead>
+                      <TableHead className="text-[#4b5563] font-semibold text-xs">Property Title</TableHead>
+                      <TableHead className="text-[#4b5563] font-semibold text-xs">Schedule Date</TableHead>
+                      <TableHead className="text-[#4b5563] font-semibold text-xs">Status</TableHead>
+                      <TableHead className="text-[#4b5563] font-semibold text-xs text-right">Actions</TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>
                     {tours.map((t) => (
-                      <TableRow key={t.id} className="border-white/5 hover:bg-white/2">
-                        <TableCell className="font-semibold text-slate-200">
+                      <TableRow key={t.id} className="border-[#e6e1d5] hover:bg-[#eae6db]/10">
+                        <TableCell className="font-semibold text-[#111827]">
                           <div>{t.client}</div>
-                          <div className="text-[11px] text-slate-400 font-normal">{t.phone}</div>
+                          <div className="text-[11px] text-[#4b5563] font-normal">{t.phone}</div>
                         </TableCell>
-                        <TableCell className="text-slate-300 max-w-[200px] truncate">{t.property}</TableCell>
-                        <TableCell className="text-slate-300 font-medium">
+                        <TableCell className="text-[#374151] max-w-[200px] truncate">{t.property}</TableCell>
+                        <TableCell className="text-[#374151] font-semibold">
                           <div>{t.date}</div>
-                          <div className="text-[10px] text-slate-500 font-normal">{t.time}</div>
+                          <div className="text-[10px] text-[#6e6e73] font-normal">{t.time}</div>
                         </TableCell>
                         <TableCell>
                           <span className={`text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-sm ${
                             t.status === 'Contacted' 
-                              ? 'bg-[#10b981]/20 text-[#10b981]' 
+                              ? 'bg-emerald-50 text-emerald-800' 
                               : t.status === 'Archived'
-                                ? 'bg-slate-800 text-slate-500'
-                                : 'bg-[#d4af37]/20 text-[#d4af37]'
+                                ? 'bg-[#eae6db]/50 text-[#6e6e73]'
+                                : 'bg-[#fbf7ee] text-[#a6813b]'
                           }`}>
                             {t.status || 'Pending'}
                           </span>
                         </TableCell>
                         <TableCell className="text-right">
                           <div className="flex justify-end gap-2">
-                            <Button onClick={() => onUpdateTourStatus(t.id, 'Contacted')} className="bg-transparent border border-white/10 text-slate-200 hover:bg-white/5 text-[10px] h-7 px-3">
+                            <Button onClick={() => onUpdateTourStatus(t.id, 'Contacted')} className="bg-transparent border border-[#e6e1d5] text-[#374151] hover:bg-[#eae6db] text-[10px] h-7 px-3">
                               Contacted
                             </Button>
-                            <Button onClick={() => onUpdateTourStatus(t.id, 'Archived')} className="bg-transparent hover:bg-red-500/20 text-red-400 hover:text-red-300 text-[10px] h-7 px-3">
+                            <Button onClick={() => onUpdateTourStatus(t.id, 'Archived')} className="bg-transparent hover:bg-red-50 text-red-600 border border-transparent hover:border-red-200 text-[10px] h-7 px-3">
                               Archive
                             </Button>
                           </div>
@@ -566,46 +566,46 @@ export function AdminPortal({
 
               {/* TAB 4: Seller Leads */}
               <TabsContent value="sellers" className="flex-1 p-8 overflow-y-auto m-0">
-                <h3 className="text-lg font-serif text-slate-100 mb-6">Home valuation inquiries</h3>
+                <h3 className="text-lg font-bold tracking-tight text-[#7f1d1d] mb-6">Home valuation inquiries</h3>
                 <Table>
                   <TableHeader>
-                    <TableRow className="border-white/5 hover:bg-transparent">
-                      <TableHead className="text-slate-400 text-xs">Owner Name</TableHead>
-                      <TableHead className="text-slate-400 text-xs">Address</TableHead>
-                      <TableHead className="text-slate-400 text-xs">Property Specs</TableHead>
-                      <TableHead className="text-slate-400 text-xs">Status</TableHead>
-                      <TableHead className="text-slate-400 text-xs text-right">Actions</TableHead>
+                    <TableRow className="border-[#e6e1d5] hover:bg-transparent">
+                      <TableHead className="text-[#4b5563] font-semibold text-xs">Owner Name</TableHead>
+                      <TableHead className="text-[#4b5563] font-semibold text-xs">Address</TableHead>
+                      <TableHead className="text-[#4b5563] font-semibold text-xs">Property Specs</TableHead>
+                      <TableHead className="text-[#4b5563] font-semibold text-xs">Status</TableHead>
+                      <TableHead className="text-[#4b5563] font-semibold text-xs text-right">Actions</TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>
                     {sellers.map((s) => (
-                      <TableRow key={s.id} className="border-white/5 hover:bg-white/2">
-                        <TableCell className="font-semibold text-slate-200">
+                      <TableRow key={s.id} className="border-[#e6e1d5] hover:bg-[#eae6db]/10">
+                        <TableCell className="font-semibold text-[#111827]">
                           <div>{s.name}</div>
-                          <div className="text-[11px] text-slate-400 font-normal">{s.email}</div>
+                          <div className="text-[11px] text-[#4b5563] font-normal">{s.email}</div>
                         </TableCell>
-                        <TableCell className="text-slate-300 max-w-[200px] truncate">{s.address}</TableCell>
-                        <TableCell className="text-slate-300">
+                        <TableCell className="text-[#374151] max-w-[200px] truncate">{s.address}</TableCell>
+                        <TableCell className="text-[#374151]">
                           <div>{s.beds}b / {s.baths}ba / {s.sqft} sqft</div>
-                          <div className="text-[10px] text-slate-500">Solar: {s.solar ? 'Yes' : 'No'} | EV: {s.ev ? 'Yes' : 'No'}</div>
+                          <div className="text-[10px] text-[#6e6e73]">Solar: {s.solar ? 'Yes' : 'No'} | EV: {s.ev ? 'Yes' : 'No'}</div>
                         </TableCell>
                         <TableCell>
                           <span className={`text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-sm ${
                             s.status === 'Contacted' 
-                              ? 'bg-[#10b981]/20 text-[#10b981]' 
+                              ? 'bg-emerald-50 text-emerald-800' 
                               : s.status === 'Archived'
-                                ? 'bg-slate-800 text-slate-500'
-                                : 'bg-[#d4af37]/20 text-[#d4af37]'
+                                ? 'bg-[#eae6db]/50 text-[#6e6e73]'
+                                : 'bg-[#fbf7ee] text-[#a6813b]'
                           }`}>
                             {s.status || 'Pending'}
                           </span>
                         </TableCell>
                         <TableCell className="text-right">
                           <div className="flex justify-end gap-2">
-                            <Button onClick={() => onUpdateSellerStatus(s.id, 'Contacted')} className="bg-transparent border border-white/10 text-slate-200 hover:bg-white/5 text-[10px] h-7 px-3">
+                            <Button onClick={() => onUpdateSellerStatus(s.id, 'Contacted')} className="bg-transparent border border-[#e6e1d5] text-[#374151] hover:bg-[#eae6db] text-[10px] h-7 px-3">
                               Contacted
                             </Button>
-                            <Button onClick={() => onUpdateSellerStatus(s.id, 'Archived')} className="bg-transparent hover:bg-red-500/20 text-red-400 hover:text-red-300 text-[10px] h-7 px-3">
+                            <Button onClick={() => onUpdateSellerStatus(s.id, 'Archived')} className="bg-transparent hover:bg-red-50 text-red-600 border border-transparent hover:border-red-200 text-[10px] h-7 px-3">
                               Archive
                             </Button>
                           </div>
@@ -621,11 +621,10 @@ export function AdminPortal({
         </div>
       )}
 
-      {/* MODAL: Add Listing Dialog */}
       <Dialog open={isAddOpen} onOpenChange={setIsAddOpen}>
-        <DialogContent className="bg-slate-900 border-white/10 text-slate-100 sm:max-w-[750px] max-h-[85vh] overflow-y-auto">
+        <DialogContent className="bg-[#faf9f6] border-[#e6e1d5] text-[#1f2937] sm:max-w-[750px] max-h-[85vh] overflow-y-auto">
           <DialogHeader>
-            <DialogTitle className="font-serif text-lg text-slate-200">Create Custom Listing</DialogTitle>
+            <DialogTitle className="font-bold tracking-tight text-lg text-[#7f1d1d]">Create Custom Listing</DialogTitle>
           </DialogHeader>
           <form onSubmit={handleAddSubmit} className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-4">
             
@@ -936,11 +935,10 @@ export function AdminPortal({
         </DialogContent>
       </Dialog>
 
-      {/* MODAL: Edit Listing Dialog */}
       <Dialog open={isEditOpen} onOpenChange={setIsEditOpen}>
-        <DialogContent className="bg-slate-900 border-white/10 text-slate-100 sm:max-w-[500px] max-h-[85vh] overflow-y-auto">
+        <DialogContent className="bg-[#faf9f6] border-[#e6e1d5] text-[#1f2937] sm:max-w-[500px] max-h-[85vh] overflow-y-auto">
           <DialogHeader>
-            <DialogTitle className="font-serif text-lg text-slate-200">Edit Listing Details</DialogTitle>
+            <DialogTitle className="font-bold tracking-tight text-lg text-[#7f1d1d]">Edit Listing Details</DialogTitle>
           </DialogHeader>
           <form onSubmit={handleEditSubmit} className="flex flex-col gap-5 mt-4">
             
